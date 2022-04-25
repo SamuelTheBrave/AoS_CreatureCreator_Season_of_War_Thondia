@@ -106,14 +106,14 @@ body {
 .profile {
   width: 150px; height: 150px;
   position: absolute;
-  background: url("https://i.ibb.co/F85GW6v/AoS2_WS_wheel_wtxt.png");
+  background: url("AoS2_WS_wheel_wtxt.png");
   background-size: 150px 150px;
   z-index: 3;
   /*border: 1px solid black;*/
 }
 .statsTable .profile {
   width: 112px; height: 112px;
-  /*background: url("https://i.ibb.co/F85GW6v/AoS2_WS_wheel_wtxt.png");*/
+  /*background: url("AoS2_WS_wheel_wtxt.png");*/
   background-size: 112px 112px;
   z-index: 4;
 }
