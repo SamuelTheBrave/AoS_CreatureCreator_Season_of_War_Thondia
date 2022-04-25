@@ -1552,20 +1552,20 @@ function changeSize() {
 };
 
 // print warscroll as png ------------------------------
-$(document).ready(function () {
-  var element = $("#yourWarscroll"); // global variable
-  var getCanvas; //global variable
-  html2canvas(element, {
-    onrendered: function (canvas) { getCanvas = canvas; }
-  });
- 
-  $("#download_your_warscroll").on('click', function () {
-    var imgageData = getCanvas.toDataURL("image/png");
-    //Now browser starts downloading it instead of just showing it
-    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-    $("#download_your_warscroll").attr("download", "your_AoS_hero.png").attr("href", newData);
-  });
-});
+//$(document).ready(function () {
+//  var element = $("#yourWarscroll"); // global variable
+//  var getCanvas; //global variable
+//  html2canvas(element, {
+//    onrendered: function (canvas) { getCanvas = canvas; }
+//  });
+// 
+//  $("#download_your_warscroll").on('click', function () {
+//    var imgageData = getCanvas.toDataURL("image/png");
+//    //Now browser starts downloading it instead of just showing it
+//    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+//    $("#download_your_warscroll").attr("download", "your_AoS_hero.png").attr("href", newData);
+//  });
+//});
 
 
 function downloadWS() {
@@ -1575,6 +1575,19 @@ function downloadWS() {
     var link = document.createElement("a");
     document.body.appendChild(link);
     link.download = "html_image.jpg";
+    link.href = canvas.toDataURL();
+    link.target = '_blank';
+    link.click();
+  });
+};
+
+function downloadWS_PNG() {
+  var container = document.getElementById("warscrollcard");
+  html2canvas(container).then(function (canvas) {
+
+    var link = document.createElement("a");
+    document.body.appendChild(link);
+    link.download = "html_image.png";
     link.href = canvas.toDataURL();
     link.target = '_blank';
     link.click();
