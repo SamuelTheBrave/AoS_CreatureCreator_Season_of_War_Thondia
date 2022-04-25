@@ -1,0 +1,3056 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Anvil of Apotheosis</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="Anvil of Ghur - Style.css">
+</head>
+
+<body onclick="showTagProperty(event)" onload="show_hide('none')">
+
+  <div class="first-header">
+    <h1><span class="logo">
+      <img src=https://www.games-workshop.com/resources/touts/Embedded-Medias/AoS/AoSLogo-EM.png alt="LogoWarhammerAoS2.0">
+      </span>
+      The Anvil of Ghur</h1><p>An completely unofficial tool to create your own hero/villain for Warhammer – Age of Sigmar. <span style="font-size: 75%;">(Modzilla Firefox Edition)</span>
+    </h1>
+  </div>
+  
+  <div class="navbar" style="display: block;">
+    <!-- Left-aligned links (default) -->
+    <!-- <a href="#home" class="active" >Home</a> -->
+    <a href="https://samuelthebrave.github.io/AoS_CreatureCreator/">Anvil of Apotheosis</a>
+    <a href="https://samuelthebrave.github.io/AoS_CreatureCreator_Death/">Anvil of Death</a>
+    <a href="https://samuelthebrave.github.io/AoS_CreatureCreator_Chaos/">Anvil of Chaos</a>
+    <a href="https://samuelthebrave.github.io/AoS_CreatureCreator_Blood/">Anvil of Blood</a>
+    <a href="https://samuelthebrave.github.io/AoS_CreatureCreator_Destruction/">Anvil of Destruction</a>
+    <a href="https://samuelthebrave.github.io/AoS_CreatureCreator_Ghur/" class="active" >Anvil of Ghur</a>
+    <!-- Right-aligned links -->
+    <div class="navbar-right">
+      <a href="#links">Links</a>
+      <a href="#about">About</a>
+    </div>
+  </div><!-- end of navbar -->
+  <br>
+
+  <div class="sticky" id="warscrollshow" style="display: block; z-index: 9; text-align: right";>
+    <p1 style="font-size: 17px"><input type="checkbox" id="showhideCard" onclick="clickCard()" checked> show/hide Warscroll</p1>
+  
+  <div class="sticky" id="warscrollcard" style="display: block; z-index: 9;";>
+    <!-- <p style="margin: 0px auto 10px; text-align: center; width: 794px;"><b>This is a short preview of your Warscroll:</b></p> -->
+    <div id="yourWarscroll" class="warscroll" style="width: 210mm; min-height: 59mm; display: block;">
+      <div id="card">
+        <div class="statsTable">
+          <div class="profile">
+            <div class="numbers">
+              <ul>
+                <li class="q1" id="move" value='1"'>1"</li>
+                <!--<img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto auto -4px;";>-->
+                <li class="q2" id="save" value="-">-</li>
+                <li class="q3" id="brav" value="1">1</li>
+                <li class="q4" id="woun" value="1">1</li>                
+              </ul>
+            </div><!-- end of profile numbers -->
+          </div><!-- end of profile -->
+          
+          <div class="points" style="right: 9px; z-index: 5;">            
+            <div class="numbers">
+              <ul>
+                <li class="p1" id="ptsAct" value=0>0</li>
+              </ul>
+            </div>
+          </div><!-- end of points -->
+          <div id="roleDP" class="points" style="right: 9px; top: 40px; display: block; z-index: 4;">
+            <div class="numbers">
+              <ul>
+                <li class="p1" id="ptsMax">-</li>
+              </ul>
+            </div>
+          </div><!-- end of points2 -->
+          
+          <div style="border: none; height: 12px;">
+            <caption></caption>
+          </div>
+          
+          <div class="heroName">            
+            <table>
+              <tr>
+                <th id="heroName" value="your heros name">your heros name</th>
+              <tr>
+              </tr>
+                <td id="heroDescr" value="a description of your hero">a short description of your hero.</td>
+              </tr>
+            </table>
+          </div><!-- end or heroName -->
+            
+          <div id="weaTablePreview" class="gwTable">
+            <div id="missileTablePre" style="display: none;">
+              <table id="missileWeaTablePre" class="missile">
+                <tr>
+                  <th>MISSILE WEAPONS</th>
+                  <th style="width: 10%;">Range</th>
+                  <th style="width: 10%;">Attacks</th>
+                  <th style="width: 10%;">To Hit</th>
+                  <th style="width: 10%;">To Wound</th>
+                  <th style="width: 10%;">Rend</th>
+                  <th style="width: 10%;">Damage</th>
+                </tr>
+              </table>
+            </div>
+            <div id="meleeTablePre" style="display: none;">
+              <table id="meleeWeaTablePre" class="melee">
+                <tr>
+                  <th>MELEE WEAPONS</th>
+                  <th style="width: 10%;">Range</th>
+                  <th style="width: 10%;">Attacks</th>
+                  <th style="width: 10%;">To Hit</th>
+                  <th style="width: 10%;">To Wound</th>
+                  <th style="width: 10%;">Rend</th>
+                  <th style="width: 10%;">Damage</th>
+                </tr>
+              </table>
+              <!--<img class="line-bottom" src="https://runebrush.pa-sy.com/warscroll/image/border-bottom.png">-->
+            </div>
+          </div><!-- end of gwTable -->
+
+          <div id="damageTable" class="damageTable" style="display: none;"><br></div><!-- end of behemoth -->
+        </div><!-- end of stats-table -->
+
+        
+        <div class="innerTxtPre">
+          <div id="description" class="description" style="display: block; margin: 0px 0px 4px 0px;">
+            <t1>DESCRIPTION</t1><br>
+            <table style="margin: 0px -3px 2px;">
+              <tr>
+                <td>                
+                <t2><span id="yourHerosName">Your hero</span> is a single model and <span id="yourHeroArmoury">currently unarmed</span>.</t2>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div id="abilities" class="abilities" style="display: none; margin: 0px 0px 4px 0px;"><t1>ABILITIES</t1><br></div>
+          <div id="magic" class="magic" style="display: none; margin: 0px 0px 4px 0px;"><t1>MAGIC</t1><br></div>
+          <div id="command" class="command" style="display: none; margin: 0px 0px 4px 0px;"><t1>COMMAND ABILITIES</t1><br></div>          
+        </div>
+
+        <div class="keywords" style="display: block;">
+          <table>
+            <tr>
+              <th style="width: 90px;">KEYWORDS</th>
+              <td id="heroKeys"></td>
+            </tr>
+          </table>
+        </div><!-- end of keywords -->
+
+      </div><!-- end of card -->
+
+    </div><!-- end of warscroll -->
+  </div><!-- end of warscrollcard -->
+  
+  </div><!-- end of warscrollShow -->
+
+
+<div class="allSteps">
+
+<div id="step0" class="anvilSteps"><!-- Anvil of Apotheosis: THE BEGINNING -->
+  <div class="row">
+    <div class="main">
+      <h2 style="font-size: 150%;"><b>THE ANVIL OF GHUR</b></h2>
+      <p><b>In the vaults of high Sigmaron, the greatest warriors of the Stormcast Eternals are forged upon the Anvil of
+Apotheosis. Across the realms can be found similar champions of all races and allegiances, each having endured
+their own crucible of testing and each possessing quirks and qualities that have seen them rise to power.</b></p>
+      <p>The rules in this tool, as found and originally printed in Seasons of War: Thondia in 2022, will enable you to create a unique hero of your own design that hails from Ghur. This could be an existing Citadel Miniature that you wish to give its own bespoke rules or a conversion you have made.</p>
+      <p>There are 6 steps outlined in this section that you must follow to create your own hero. As you follow the steps, you will have a host of options to choose from, including powerful weapons and ferocious mounts. After completing all of the steps, you will be able to field your hero in your narrative play games of Age of Sigmar.</p>
+      <p>A blank warscroll to record your hero upon can be printed out from <a href="https://www.warhammer-community.com/wp-content/uploads/2020/07/Ic3zN7w7Cm1K3VeO.pdf" target="_blank">www.warhammer-community.com</a>.</p>
+      <p>The 6 steps are as follows:</p>
+      <p6>1. Set a destiny point limit for your hero.</p>
+      <p6>2. Choose your hero’s ancestry.</p>
+      <p6>3. Equip your hero with weapons from the armoury.</p>
+      <p6>4. Pick an archetype for your hero: Commander, Mage or Acolyte.</p>
+      <p6>5. Choose a bestial companion (if any) for your hero.</p>
+      <p6>6. Spend your remaining destiny points on any characteristic enhancements or abilities for your hero.</p>
+      <br>
+      <h2><b>CHARACTERISTIC ENHANCEMENTS AND ABILITIES</b></h2>
+      <p>Many of the steps include <b>options</b> to give your hero a [Characteristic Enhancement] or an [Ability]. If the option gives a [Characteristic Enhancement], the specified characteristic will be modify as noted. If it gives an [Ability], the ability will be writen in the ‘Abilities’ section of your hero’s warscroll. The same [Characteristic Enhancement] can be chosen up to 3 times for your hero; however, the same [Ability] cannot be chosen more than once. Lastly, some options will have <b>restrictions</b> that limit which keywords can or cannot take a certain option.</p>
+    </div>
+  </div>
+  <div style="display: none;">
+    <p>Valid: </p><p id="validateStep0">validated</p>
+  </div>
+</div>
+
+<div id="step1" class="anvilSteps"><!-- Anvil of Apotheosis: STEP 1 - THE DESTINY POINT LIMIT -->
+  <div class="row">
+    <div class="main">
+      <h2><b>STEP 1 – THE DESTINY POINT LIMIT</b></h2>
+      <p>When creating your hero, the first step is to pick 1 of the following <b>destiny point limits</b> for your hero:</p>
+    </div>
+  </div>
+
+  <div class="row" style="font-size: 115%;">
+      <div class="main gwTable">
+        <table onclick="setPointLimit(20)">
+          <tr>
+            <td width=20% rowspan="2" style="text-align: center;";><input type="radio" name="ptLimit" id="champion" onclick="setPointLimit(20)"></td>
+            <td width=80% style="text-align: left; padding: 4px; border-style: solid none none none;"><b>Champion</b></td>
+          </tr>
+          <tr>
+            <td style="text-align: left; padding: 4px; border-style: none;">Limit: 20 destiny points</td>
+          </tr>
+        </table>    
+      </div>
+      <div class="main gwTable">    
+        <table onclick="setPointLimit(40)">
+          <tr>
+            <td width=20% rowspan="2" style="text-align: center;";><input type="radio" name="ptLimit" id="conqueror" onclick="setPointLimit(40)"></td>
+            <td width=80% style="text-align: left; padding: 4px; border-style: solid none none none;"><b>Conqueror</b></td>
+          </tr>
+          <tr>
+            <td style="text-align: left; padding: 4px; border-style: none;">Limit: 40 destiny points</td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="main">
+      <p1><b>Hero Quest</b> (see page 66 in Seasons of War: Thondia)</p1><br>
+      <p1>Limit: Number of destiny points recorded on quest log</p1>
+      <p>As you complete the rest of the steps, each option you pick for your hero will cost a certain number of <b>destiny points</b>. This will often be abbreviated as <b>DP</b>. This tool will keep a running tally of the number of destiny ponits you have spent. The tally should not exceed the limit you have set.</p>
+    </div>
+  </div>
+  <div style="display: none;">
+    <p>Valid: <span id="validateStep1">not valid</span></p>
+  </div>
+</div>
+
+<div id="step2" class="anvilSteps"><!-- Anvil of Apotheosis: STEP 2 - THE ANCESTRY -->
+  <div class="row">
+    <div class="main">
+      <h2><b>STEP 2 – THE ANCESTRY</b></h2>
+      <p>The second step is to pick the <b>ancestry</b> for your hero. There are 24 to choose from in total, from Aelf to Daemon to Stormcast Eternal and so forth. The ancestry you pick will cost a number of destiny points (as indicated in the upper-right corner of the ancestry) and will populate your hero's Move, Wounds, Bravery and Save characteristics. The ancestry will also give them a set of keywords. All of these will be written down onto your hero's warscroll after making your choice. If the ancestry includes the &lt;army&gt; keyword, you must pick 1 of the army keywords listed for that ancestry.</p>
+      <p>You can change any army keyword by clicking on the affiliated army list. Every click will change the army keyword, so you have to click until your desired keyword shows up.</p>
+    </div>
+  </div>
+  
+  <div class="main" style="overflow:auto; padding: 0px 0px 15px;">
+    <div style="text-align:center;">  <!-- style="float:right;" -->
+      <button class="grandButton" id="grandALL" onclick="showAlliance(this.id)">ALL</button>
+      <!-- <button class="navButton" id="resetBtn" onclick="resetStep(0)">Reset</button> -->
+      <button class="grandButton" id="grandCHAOS" onclick="showAlliance(this.id)">CHAOS</button>
+      <button class="grandButton" id="grandDEATH" onclick="showAlliance(this.id)">DEATH</button>
+      <button class="grandButton" id="grandDESTRUCTION" onclick="showAlliance(this.id)">DESTRUCTION</button>
+      <button class="grandButton" id="grandORDER" onclick="showAlliance(this.id)">ORDER</button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="innerT3" id="step2chars">
+    
+      <div class="charSquare" id="AELF" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">6"</li>
+              <li class="q2">6+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">AELF</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysAELF">ORDER, AELF, &lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyAELF" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Daughters of Khaine&gt;, &lt;Idoneth Deepkin&gt;, &lt;Lumineth Realm-lords&gt;, &lt;Cities of Sigmar&gt;</td>
+            </tr>
+            <caption></caption>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="BONESPLITTER ORRUK" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">6+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">BONESPLITTER ORRUK</th>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Keywords:</td>
+              <td class="charKeys" id="KeysBONESPLITTER ORRUK">DESTRUCTION, ORRUK, ORRUK WARCLANS, BONESPLITTERZ, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="BULLGOR" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">7"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">8</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">8</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">BULLGOR</th><!-- 8 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysBULLGOR">CHAOS, BEASTS OF CHAOS, WARHERD, BULLGOR, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="DAEMON" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">10</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">5</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">DAEMON</th>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysDAEMON">CHAOS, DAEMON, &lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyDAEMON" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Blades of Khorne&gt;, &lt;Disciples of Tzeentch&gt;, &lt;Maggotkin of Nurgle&gt;, &lt;Hedonites of Slaanesh&gt;</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="DEATHMAGE" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">6+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">DEATHMAGE</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysDEATHMAGE">DEATH, SOULBLIGHT GRAVELORDS, DEATHMAGE, HERO</td>
+            </tr>
+            <!--<tr>
+              <td style="font-weight: bold; text-align: center;"></td>
+              <td><i>This hero may be selected as part of a Grand Host of Nagash, Legion of Sacrament, Legion of Blood or Legion of Night army and gain the appropriate faction keyword.</i></td>
+            </tr>-->
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="DRAGON OGOR" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">8"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">10</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">10</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">DRAGON OGOR</th>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Keywords:</td>
+              <td class="charKeys" id="KeysDRAGON OGOR">CHAOS, BEASTS OF CHAOS, THUNDERSCORN, DRAGON OGOR, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="DUARDIN" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">4"</li>
+              <li class="q2">4+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">4</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">DUARDIN</th><!-- 4 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysDUARDIN">ORDER, DUARDIN, &lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyDUARDIN" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Fyreslayers&gt;, &lt;Kharadron Overlords&gt;, &lt;Cities of Sigmar&gt;</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="GOR" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">6"</li>
+              <li class="q2">6+</li>
+              <li class="q3">6</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">GOR</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysGOR">CHAOS, GOR, BRAYHERD, &lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyGOR" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Beasts of Chaos&gt;, &lt;Disciples of Tzeentch&gt;</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="GROT" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">6+</li>
+              <li class="q3">4</li>
+              <li class="q4">4</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">GROT</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysGROT">DESTRUCTION, GROT, GLOOMSPITE GITZ, HERO</td>
+            </tr>
+            <!--<tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyGROT" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Moonclan&gt;, &lt;Spiderfang&gt;</td>
+            </tr>-->
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="HUMAN" onclick="clickChar(this.id)" style="display: block;" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">4</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">HUMAN</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysHUMAN">ORDER, HUMAN, CITIES OF SIGMAR, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="IRONJAW ORRUK" onclick="clickChar(this.id)" style="display: block;" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">4"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">6</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">5</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">IRONJAW ORRUK</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysIRONJAW ORRUK">DESTRUCTION, ORRUK, ORRUK WARCLANS, IRONJAWZ, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="KRULEBOYZ ORRUK" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">6</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">5</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">KRULEBOYZ ORRUK</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysKRULEBOYZ ORRUK">DESTRUCTION, ORRUK, ORRUK WARCLANS, KRULEBOYZ, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="MALIGNANT" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">6"</li>
+              <li class="q2">4+</li>
+              <li class="q3">10</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">12</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">MALIGNANT</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysMALIGNANT">DEATH, MALIGNANT, NIGHTHAUNT, HERO</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;"></td>
+              <td><i>This hero comes with the 'Fly' and 'Ethereal' abilities (see later).</i></td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="MORDANT" onclick="clickChar(this.id)" style="display: block;" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">6"</li>
+              <li class="q2">5+</li>
+              <li class="q3">10</li>
+              <li class="q4">6</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">6</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">MORDANT</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysMORDANT">DEATH, MORDANT, FLESH-EATER COURTS, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="MORTAL" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">4</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">MORTAL</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysMORTAL">CHAOS, MORTAL,
+&lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyMORTAL" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Blades of Khorne&gt;, &lt;Disciples of Tzeentch&gt;, &lt;Maggotkin of Nurgle&gt;, &lt;Hedonites of Slaanesh&gt;<!--, &lt;Slaves to Darkness&gt;--></td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="OGOR" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">6"</li>
+              <li class="q2">5+</li>
+              <li class="q3">8</li>
+              <li class="q4">7</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">7</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">OGOR</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysOGOR">DESTRUCTION, OGOR, OGOR MAWTRIBES,
+&lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeyOGOR" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Beastclaw Raiders&gt;, &lt;Gutbusters&gt;</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="OSSIARCH BONEREAPER" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">10</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">5</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">OSSIARCH BONEREAPER</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysOSSIARCH BONEREAPER">DEATH, OSSIARCH BONEREAPERS, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="SAURUS" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">4+</li>
+              <li class="q3">8</li>
+              <li class="q4">6</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">6</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">SAURUS</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysSAURUS">ORDER, SERAPHON, SAURUS, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="SKAVEN" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">SKAVEN</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys colorChanger" id="KeysSKAVEN">CHAOS, SKAVEN, SKAVENTIDE,
+&lt;ARMY&gt;, HERO</td>
+            </tr>
+            <tr>
+              <td class="listArmy">ARMY</td>
+              <td id="KeySKAVEN" onclick="selectArmy(this.id, this.innerHTML)" style="cursor: pointer;">&lt;Masterclan&gt;, &lt;Clans Pestilens, Nurgle&gt;, &lt;Clans Verminus&gt;, &lt;Clans Skryre&gt;, &lt;Clans Moulder&gt;, &lt;Clans Eshin&gt;</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="SKELETON" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">4"</li>
+              <li class="q2">6+</li>
+              <li class="q3">10</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">3</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">SKELETON</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysSKELETON">DEATH, SKELETON, SOULBLIGHT GRAVELORDS, DEATHRATTLE, HERO</td>
+            </tr>
+            <!--<tr>
+              <td style="font-weight: bold; text-align: center;"></td>
+              <td><i>This hero may be selected as part of a Grand Host of Nagash, Legion of Sacrament, Legion of Blood or Legion of Night army and gain the appropriate faction keyword.</i></td>
+            </tr>-->
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="SKINK" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">8"</li>
+              <li class="q2">6+</li>
+              <li class="q3">6</li>
+              <li class="q4">4</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">4</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">SKINK</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysSKINK">ORDER, SERAPHON, SKINK, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="STORMCAST ETERNAL" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">4+</li>
+              <li class="q3">8</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">5</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">STORMCAST ETERNAL</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysSTORMCAST ETERNAL">ORDER, CELESTIAL, HUMAN, STORMCAST ETERNALS, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="SYLVANETH" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">5"</li>
+              <li class="q2">5+</li>
+              <li class="q3">7</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">4</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">SYLVANETH</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysSYLVANETH">ORDER, SYLVANETH, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+      <div class="charSquare" id="VAMPIRE" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1">4"</li>
+              <li class="q2">6+</li>
+              <li class="q3">10</li>
+              <li class="q4">5</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">4</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">VAMPIRE</th><!-- 3 -->
+            </tr>
+            <tr>
+              <td style="font-weight: bold; text-align: center;">Keywords:</td>
+              <td class="charKeys" id="KeysVAMPIRE">DEATH, VAMPIRE, SOULBLIGHT GRAVELORDS, HERO</td>
+            </tr>
+            <!--<tr>
+              <td style="font-weight: bold; text-align: center;"></td>
+              <td><i>This hero may be selected as part of a Grand Host of Nagash, Legion of Sacrament, Legion of Blood or Legion of Night army and gain the appropriate faction keyword.</i></td>
+            </tr>-->
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+      
+    <div style="display: none;"><!-- used in Anvil of Chaos -->
+      <div class="charSquare" id="BLOODTHIRSTER" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1"><img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto auto -5px;";></li>
+              <li class="q2"><img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto auto -5px;";></li>
+              <li class="q3">10</li>
+              <li class="q4">14</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">15</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">BLOODTHIRSTER</th>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Damage Table:</td>
+              <td style="padding: 0px;">
+                <div id="Bloodthirster_DmgTable" class="gwTable" style="font-size: 105%; margin: auto;">
+                  <table>
+                    <tr>
+                      <th class="headCap" id="" colspan=4 style="text-align: center; background-color: rgb(145 136 77); padding: 3px 14px; font-size: 100%;";>DAMAGE TABLE</th>
+                    </tr>
+                    <tr>
+                      <th width=34%>Wounds Suffered</th>
+                      <th width=33%>Move</th>
+                      <th width=33%>Save</th>
+                    </tr>
+                    <tr>
+                      <td>0-3</td>
+                      <td>10"</td>
+                      <td>5+</td>
+                    </tr>
+                    <tr>
+                      <td>4-6</td>
+                      <td>8"</td>
+                      <td>5+</td>
+                    </tr>
+                    <tr>
+                      <td>7-9</td>
+                      <td>6"</td>
+                      <td>5+</td>
+                    </tr>
+                    <tr>
+                      <td>10-12</td>
+                      <td>4"</td>
+                      <td>6+</td>
+                    </tr>
+                    <tr>
+                      <td>13+</td>
+                      <td>2"</td>
+                      <td>6+</td>
+                    </tr>
+                  </table>
+                </div><!-- end of Bloodthirster_DmgTable -->
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Optional Rule:</td>
+              <td>You can pick 1 command ability from the table below and add it to the warscroll.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Keywords:</td>
+              <td class="charKeys" id="KeysBLOODTHIRSTER">CHAOS, DAEMON, GREATER DAEMON, BLOODTHIRSTER, KHORNE, MONSTER, HERO</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+    </div><!-- end of used in Anvil of Chaos -->
+      
+    <div style="display: none;"><!-- used in Anvil of Chaos -->
+      <div class="charSquare" id="LORD OF CHANGE" onclick="clickChar(this.id)" style="display: block;">
+        <div class="profile">
+          <div class="numbers">
+            <ul>
+              <li class="q1"><img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto auto -5px;";></li>
+              <li class="q2">5+</li>
+              <li class="q3">10</li>
+              <li class="q4">14</li>
+            </ul>
+          </div><!-- end of profile numbers -->
+        </div><!-- end of profile -->
+        <div class="points" style="z-index: 2;">
+          <div class="numbers">
+            <ul>
+              <li class="p1" id="ptsCost">18</li>
+            </ul>
+          </div>
+        </div><!-- end of points -->
+        <div class="charType">
+          <table>
+            <caption></caption>
+            <tr>
+              <th width=15%></th>
+              <th width=85% class="charName">LORD OF CHANGE</th>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Damage Table:</td>
+              <td style="padding: 0px;">
+                <div id="LordOfChange_DmgTable" class="gwTable" style="font-size: 105%;">
+                  <table>
+                    <tr>
+                      <th class="headCap" id="" colspan=4 style="text-align: center; background-color: rgb(145 136 77); padding: 3px 14px; font-size: 100%;";>DAMAGE TABLE</th>
+                    </tr>
+                    <tr>
+                      <th width=32%>Wounds Suffered</th>
+                      <th width=32%>Move</th>
+                      <th width=36%>Cast/Unbind Spells</th>
+                    </tr>
+                    <tr>
+                      <td>0-3</td>
+                      <td>12"</td>
+                      <td>Cast 2 spells, unbind 2 spells</td>
+                    </tr>
+                    <tr>
+                      <td>4-6</td>
+                      <td>10"</td>
+                      <td>Cast 2 spells, unbind 2 spells</td>
+                    </tr>
+                    <tr>
+                      <td>7-9</td>
+                      <td>9"</td>
+                      <td>Cast 2 spells, unbind 1 spell</td>
+                    </tr>
+                    <tr>
+                      <td>10-12</td>
+                      <td>8"</td>
+                      <td>Cast 2 spells, unbind 1 spell</td>
+                    </tr>
+                    <tr>
+                      <td>13+</td>
+                      <td>7"</td>
+                      <td>Cast 1 spell, unbind 1 spell</td>
+                    </tr>
+                  </table>
+                </div><!-- end of LordOfChange_DmgTable -->
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">[Ability]</td>
+              <td class="gwTable">(Add the following to the warscroll):<br><br><b>MAGIC</b><br>
+                <div id="Magic_Abi0" class="des" style="font-size: 110%;">
+                  <table>
+                    <tr>
+                      <td class="des">This <t1>HERO</t1> is a <t1>WIZARD</t1>. They can attempt to cast a number of spells in your hero phase and attempt to unbind a number of spells in the enemy hero phase as shown on the damage table above. They know the Arcane Bolt and Mystic Shield spells. In addition, they know any spells you have picked for them from the Spell Table.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Optional Rule:</td>
+              <td>You can pick 2 spells from the table below and add it to the warscroll.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Keywords:</td>
+              <td class="charKeys" id="KeysLORD OF CHANGE">CHAOS, DAEMON, GREATER DAEMON, TZEENTCH, MONSTER, HERO, WIZARD, LORD OF CHANGE</td>
+            </tr>
+          </table>
+        </div><!-- end of charType -->
+      </div><!-- end of charSquare -->
+    </div><!-- end of used in Anvil of Chaos -->
+      
+    </div><!-- end of innerT3 -->
+  </div><!-- end of row -->
+  
+  <div class="row" id="allCommandAbilities" style="display: none;">
+    <div class="main">
+    
+      <div style="overflow-x:auto;">
+        <form id="commandAbilitiesForm" class="gwTable">
+        <table id="commandAbiTable">
+          <tr id="h0_coms__">
+            <th class="headCap" id="h0_coms_c1" colspan="4" style="background-color: rgb(145 136 77); padding: 6px 14px;";>COMMAND ABILITIES – BLADES OF KHORNE</th>
+            <th id="h0_coms__hi">x</th>
+          </tr>
+          
+          <tr>
+            <td id="r1_com_01c0" width=3%><input type="radio" name="archetype" id="com_01" onclick="extendedAddToWS(Lead_the_Attack, 'command', currentTab, this.id);"></td>
+            <td id="r1_com_01c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" width=25%>Lead the Attack</td>
+            <td id="r1_com_01c2" style="font-size: 125%; padding: 2px 0px 0px 2px" width=70%>
+              <div id="Lead_the_Attack" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Lead the Attack:</t1> You can use this command ability at the start of the combat phase. If you do so, pick 1 friendly unit wholly within 18" of this <t1>HERO</t1>. Add 1 to hit rolls for attacks made by that unit until the end of that phase.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td width=2%></td>
+            <td id="r1_com_01c9hi">Lead the Attack</td>            
+          </tr>
+          
+          <tr>
+            <td id="r1_com_02c0"><input type="radio" name="archetype" id="com_02" onclick="extendedAddToWS(Lead_the_Defence, 'command', currentTab, this.id);"></td>
+            <td id="r1_com_02c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Lead the Defence</td>
+            <td id="r1_com_02c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Lead_the_Defence" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Lead the Defence:</t1> You can use this command ability at the start of the combat phase. If you do so, pick 1 friendly unit wholly within 18" of this <t1>HERO</t1>. Add 1 to save rolls for attacks that target that unit until the end of that phase.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_com_02c9hi">Lead the Defence</td>            
+          </tr>
+          
+        </table>
+        </form>
+      </div><!-- end of commandAbiTable -->
+    
+    </div><!-- end of main -->
+  </div><!-- end of row (allCommandAbilities) -->
+
+  <div class="row" id="allSpells" style="display: none;">
+    <div class="main">
+    
+      <div style="overflow-x:auto;">
+        <form id="spellsForm" class="gwTable">
+        <table id="spellsTable">
+          <tr id="h1_spes__">
+            <th class="headCap" id="h1_spes_c1" colspan="4" style="background-color: rgb(145 136 77); padding: 6px 14px;";>SPELLS – DISCIPLES OF TZEENTCH</th>
+            <th id="h2_spes__hi">x</th>
+          </tr>
+          
+          <tr>
+            <td id="r1_spe_01c0" width=3%><input type="radio" name="archetype" id="spe_01" onclick="extendedAddToWS(Aura_of_Protection, 'magic', currentTab, this.id);"></td>
+            <td id="r1_spe_01c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" width=25%>Aura of Protection</td>
+            <td id="r1_spe_01c2" style="font-size: 125%; padding: 2px 0px 0px 2px" width=70%>
+              <div id="Aura_of_Protection" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Aura of Protection:</t1> This spell has a casting value of 7. If successfully cast, until the start of your next hero phase, roll a dice each time a wound or mortal wound is allocated to a friendly unit wholly within 12" of the caster. On a 6, that wound or mortal wound is negated.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td width=2%></td>
+            <td id="r1_spe_01c9hi">Aura of Protection</td>
+          </tr>
+          
+          <tr>
+            <td id="r1_spe_02c0"><input type="radio" name="archetype" id="spe_02" onclick="extendedAddToWS(Curse_of_Damnation, 'magic', currentTab, this.id);"></td>
+            <td id="r1_spe_02c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Curse of Damnation</td>
+            <td id="r1_spe_02c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Curse_of_Damnation" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Curse of Damnation:</t1> This spell has a casting value of 7. If successfully cast, pick 1 enemy unit within 12" of the caster and visible to them. That unit suffers D3 mortal wounds. In addition, subtract 1 from save rolls for attacks that target that unit until the start of your next hero phase.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_spe_02c9hi">Curse of Damnation</td>
+          </tr>
+          
+        </table>
+        </form>
+      </div><!-- end of spellsTable -->
+    
+    </div><!-- end of main -->
+  </div><!-- end of row (allSpells) -->
+  <table style="width: 100%; background-color: white;"><tr><td></td></tr></table>
+    
+  <div style="display: none;">
+    <p>Valid: <span id="validateStep2">not valid</span></p>
+    <p id="rewriteSpellsCommand">needed to rewrite spells and command abilities</p>
+  </div>
+</div>
+
+<div id="step3" class="anvilSteps"><!-- Anvil of Apotheosis: STEP 3 - THE ARMOURY -->
+  <div class="row">
+    <div class="main">
+      <div>
+        <h2><b>STEP 3 – THE ARMOURY</b></h2>
+        <p>The next step is to arm your hero with weapons from the armoury. A hero can be armed with 1 of the following weapon options:</p>
+        <p id="weaChosen"> • 1 one-handed melee weapon.<br>
+         • 2 one-handed melee weapons.<br>
+         • 1 one-handed melee weapon and a shield.<br>
+         • 1 two-handed melee weapon.<br>
+         • 1 Handbow and 1 one-handed melee weapon.<br>
+         • 1 Bow and 1 one-handed melee weapon.
+         </p>
+         <p>The weapon options and their profiles are listed in the table below, and each weapon option costs a number of destiny points as noted in the rightmost column of the table.</p>
+         <p>For each weapon chosen, add the profil to your hero's warscroll and write the name of the weapon in the description section. For added flavour, you may wish to personalise your weapons – for example, your hero's Sword could be named 'The Blade of Doom' or you could use the Handbow profile to represent an arcane zap or other ranged attack.</p>
+         <p>In step 6, you will be presented with options to improve your hero's weapons.</p>
+         <p>You can rename any weapon by double-clicking on the weapon name. If you want to assign a renamed weapon to your hero, make sure this weapon is renamed <b>before</b> you add it to the warscroll. Otherwise the new name will not show up on the warscroll.<br>(You cannot rename the shield because it will not show up on your warscroll directly, but only increase the save characteristic of your hero.)</p>
+      </div><!-- end of step description -->
+
+      <div style="overflow-x:auto;">
+        <form id="weaponsForm" class="gwTable">
+        <table>
+          <tr id="h0_ohWs__">
+            <th class="headCap" id="h0_ohWs_c1" colspan="9" style="background-color: rgb(145 136 77); padding: 6px 14px;";>ONE-HANDED WEAPONS</th>
+            <th id="h0_ohWs__hi">x</th>
+          </tr>
+          <!-- <caption><b>ONE-HANDED WEAPONS</b></caption> -->
+          <tr id="h1_ohW__">
+            <th id="h1_ohW___c0" width=3%></th>
+            <th id="h1_ohW___c1" width=48%>MELEE WEAPONS</th>
+            <th id="h1_ohW___c2" width=7%>Rng</th>
+            <th id="h1_ohW___c3" width=7%>Att</th>
+            <th id="h1_ohW___c4" width=7%>Hit</th>
+            <th id="h1_ohW___c5" width=7%>Wnd</th>
+            <th id="h1_ohW___c6" width=7%>Rnd</th>
+            <th id="h1_ohW___c7" width=7%>Dmg</th>
+            <th id="h1_ohW___c8" width=7%>DP</th>
+            <th id="h1_ohW___c9hi">x</th>
+          </tr>
+          <tr id="r1_ohW_01">
+            <td id="r1_ohW_01c0"><input type="checkbox" id="ohW_01" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_01c1" ondblclick="renameOne(event)" style="cursor: pointer;">Sword</td>
+            <td id="r1_ohW_01c2">1"</td>
+            <td id="r1_ohW_01c3">3</td>
+            <td id="r1_ohW_01c4">3+</td>
+            <td id="r1_ohW_01c5">4+</td>
+            <td id="r1_ohW_01c6">-</td>
+            <td id="r1_ohW_01c7">1</td>
+            <td id="r1_ohW_01c8">1</td>
+            <td id="r1_ohW_01c9hi">Sword</td>
+          </tr>
+          <tr id="r1_ohW_02">
+            <td id="r1_ohW_02c0"><input type="checkbox" id="ohW_02" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_02c1" ondblclick="renameOne(event)" style="cursor: pointer;">Axe</td>
+            <td id="r1_ohW_02c2">1"</td>
+            <td id="r1_ohW_02c3">3</td>
+            <td id="r1_ohW_02c4">4+</td>
+            <td id="r1_ohW_02c5">3+</td>
+            <td id="r1_ohW_02c6">-1</td>
+            <td id="r1_ohW_02c7">1</td>
+            <td id="r1_ohW_02c8">1</td>
+            <td id="r1_ohW_02c9hi">Axe</td>
+          </tr>
+          <tr id="r1_ohW_03">
+            <td id="r1_ohW_03c0"><input type="checkbox" id="ohW_03" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_03c1" ondblclick="renameOne(event)" style="cursor: pointer;">Hammer</td>
+            <td id="r1_ohW_03c2">1"</td>
+            <td id="r1_ohW_03c3">2</td>
+            <td id="r1_ohW_03c4">4+</td>
+            <td id="r1_ohW_03c5">3+</td>
+            <td id="r1_ohW_03c6">-1</td>
+            <td id="r1_ohW_03c7">2</td>
+            <td id="r1_ohW_03c8">1</td>
+            <td id="r1_ohW_03c9hi">Hammer</td>
+          </tr>
+          <tr id="r1_ohW_04">
+            <td id="r1_ohW_04c0"><input type="checkbox" id="ohW_04" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_04c1" ondblclick="renameOne(event)" style="cursor: pointer;">Spear</td>
+            <td id="r1_ohW_04c2">2"</td>
+            <td id="r1_ohW_04c3">3</td>
+            <td id="r1_ohW_04c4">4+</td>
+            <td id="r1_ohW_04c5">4+</td>
+            <td id="r1_ohW_04c6">-</td>
+            <td id="r1_ohW_04c7">1</td>
+            <td id="r1_ohW_04c8">1</td>
+            <td id="r1_ohW_04c9hi">Spear</td>
+          </tr>
+          <tr id="r1_ohW_05">
+            <td id="r1_ohW_05c0"><input type="checkbox" id="ohW_05" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_05c1" ondblclick="renameOne(event)" style="cursor: pointer;">Unarmed Strike</td>
+            <td id="r1_ohW_05c2">1"</td>
+            <td id="r1_ohW_05c3">4</td>
+            <td id="r1_ohW_05c4">4+</td>
+            <td id="r1_ohW_05c5">4+</td>
+            <td id="r1_ohW_05c6">-</td>
+            <td id="r1_ohW_05c7">1</td>
+            <td id="r1_ohW_05c8">1</td>
+            <td id="r1_ohW_05c9hi">Unarmed Strike</td>
+          </tr>
+          <tr id="r1_ohW_06">
+            <td id="r1_ohW_06c0"><input type="checkbox" id="ohW_06" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_06c1" ondblclick="renameOne(event)" style="cursor: pointer;">Flail</td>
+            <td id="r1_ohW_06c2">3"</td>
+            <td id="r1_ohW_06c3">2</td>
+            <td id="r1_ohW_06c4">4+</td>
+            <td id="r1_ohW_06c5">4+</td>
+            <td id="r1_ohW_06c6">-</td>
+            <td id="r1_ohW_06c7">1</td>
+            <td id="r1_ohW_06c8">1</td>
+            <td id="r1_ohW_06c9hi">Flail</td>
+          </tr>
+          <tr id="r1_ohW_07">
+            <td id="r1_ohW_07c0"><input type="checkbox" id="ohW_07" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohW_07c1" ondblclick="renameOne(event)" style="cursor: pointer;">Improvised Weapon</td>
+            <td id="r1_ohW_07c2">1"</td>
+            <td id="r1_ohW_07c3">3</td>
+            <td id="r1_ohW_07c4">4+</td>
+            <td id="r1_ohW_07c5">4+</td>
+            <td id="r1_ohW_07c6">-</td>
+            <td id="r1_ohW_07c7">1</td>
+            <td id="r1_ohW_07c8">0</td>
+            <td id="r1_ohW_07c9hi">Improvised Weapon</td>
+          </tr>
+          <!-- <caption><b>MISSILE WEAPONS</b></caption> -->
+          <tr id="h1_ohM__">
+            <th id="h1_ohM___c0"></th>
+            <th id="h1_ohM___c1">MISSILE WEAPONS</th>
+            <th id="h1_ohM___c2">Rng</th>
+            <th id="h1_ohM___c3">Att</th>
+            <th id="h1_ohM___c4">Hit</th>
+            <th id="h1_ohM___c5">Wnd</th>
+            <th id="h1_ohM___c6">Rnd</th>
+            <th id="h1_ohM___c7">Dmg</th>
+            <th id="h1_ohM___c8">DP</th>
+            <th id="h1_ohM___c9hi">x</th>
+          </tr>
+          <tr id="r1_ohM_01">
+            <td id="r1_ohM_01c0"><input type="checkbox" id="ohM_01" onclick="clickWea(this.id)"></td>
+            <td id="r1_ohM_01c1" ondblclick="renameOne(event)" style="cursor: pointer;">Handbow</td>
+            <td id="r1_ohM_01c2">9"</td>
+            <td id="r1_ohM_01c3">2</td>
+            <td id="r1_ohM_01c4">4+</td>
+            <td id="r1_ohM_01c5">4+</td>
+            <td id="r1_ohM_01c6">-</td>
+            <td id="r1_ohM_01c7">1</td>
+            <td id="r1_ohM_01c8">1</td>
+            <td id="r1_ohM_01c9hi">Handbow</td>
+          </tr>
+          <tr>
+            <td colspan="9" style="background-color: white;";></td>
+            <td id="p1___c9hi">x</td>  <!-- clear row no1 -->
+          </tr>
+          <tr id="h0_thWs__">
+            <th class="headCap" id="h0_thWs_c1" colspan="9" style="background-color: rgb(145 136 77); padding: 6px 14px;";>TWO-HANDED WEAPONS</th>
+            <th id="h0_thWs__hi">x</th>
+          </tr>
+          <!-- <caption><b>TWO-HANDED WEAPONS</b></caption> -->
+          <tr id="h1_thW__">
+            <th id="h1_thW___c0"></th>
+            <th id="h1_thW___c1">MELEE WEAPONS</th>
+            <th id="h1_thW___c2">Rng</th>
+            <th id="h1_thW___c3">Att</th>
+            <th id="h1_thW___c4">Hit</th>
+            <th id="h1_thW___c5">Wnd</th>
+            <th id="h1_thW___c6">Rnd</th>
+            <th id="h1_thW___c7">Dmg</th>
+            <th id="h1_thW___c8">DP</th>
+            <th id="h1_thW___c9hi">x</th>
+          </tr>
+          <tr id="r1_thW_08">
+            <td id="r1_thW_01c0"><input type="checkbox" id="thW_01" onclick="clickWea(this.id)"></td>
+            <td id="r1_thW_01c1" ondblclick="renameOne(event)" style="cursor: pointer;">Greatsword</td>
+            <td id="r1_thW_01c2">1"</td>
+            <td id="r1_thW_01c3">3</td>
+            <td id="r1_thW_01c4">3+</td>
+            <td id="r1_thW_01c5">3+</td>
+            <td id="r1_thW_01c6">-1</td>
+            <td id="r1_thW_01c7">2</td>
+            <td id="r1_thW_01c8">2</td>
+            <td id="r1_thW_01c9hi">Greatsword</td>
+          </tr>
+          <tr id="r1_thW_09">
+            <td id="r1_thW_02c0"><input type="checkbox" id="thW_02" onclick="clickWea(this.id)"></td>
+            <td id="r1_thW_02c1" ondblclick="renameOne(event)" style="cursor: pointer;">Great Axe</td>
+            <td id="r1_thW_02c2">1"</td>
+            <td id="r1_thW_02c3">3</td>
+            <td id="r1_thW_02c4">4+</td>
+            <td id="r1_thW_02c5">2+</td>
+            <td id="r1_thW_02c6">-2</td>
+            <td id="r1_thW_02c7">2</td>
+            <td id="r1_thW_02c8">2</td>
+            <td id="r1_thW_02c9hi">Great Axe</td>
+          </tr>
+          <tr id="r1_thW_10">
+            <td id="r1_thW_03c0"><input type="checkbox" id="thW_03" onclick="clickWea(this.id)"></td>
+            <td id="r1_thW_03c1" ondblclick="renameOne(event)" style="cursor: pointer;">Grandhammer</td>
+            <td id="r1_thW_03c2">1"</td>
+            <td id="r1_thW_03c3">2</td>
+            <td id="r1_thW_03c4">4+</td>
+            <td id="r1_thW_03c5">2+</td>
+            <td id="r1_thW_03c6">-2</td>
+            <td id="r1_thW_03c7">3</td>
+            <td id="r1_thW_03c8">2</td>
+            <td id="r1_thW_03c9hi">Grandhammer</td>
+          </tr>
+          <tr id="r1_thW_11">
+            <td id="r1_thW_04c0"><input type="checkbox" id="thW_04" onclick="clickWea(this.id)"></td>
+            <td id="r1_thW_04c1" ondblclick="renameOne(event)" style="cursor: pointer;">Great Spear</td>
+            <td id="r1_thW_04c2">2"</td>
+            <td id="r1_thW_04c3">3</td>
+            <td id="r1_thW_04c4">4+</td>
+            <td id="r1_thW_04c5">3+</td>
+            <td id="r1_thW_04c6">-1</td>
+            <td id="r1_thW_04c7">2</td>
+            <td id="r1_thW_04c8">2</td>
+            <td id="r1_thW_04c9hi">Great Spear</td>
+          </tr>
+          <tr id="r1_thW_12">
+            <td id="r1_thW_05c0"><input type="checkbox" id="thW_05" onclick="clickWea(this.id)"></td>
+            <td id="r1_thW_05c1" ondblclick="renameOne(event)" style="cursor: pointer;">Mage's Staff</td>
+            <td id="r1_thW_05c2">1"</td>
+            <td id="r1_thW_05c3">3</td>
+            <td id="r1_thW_05c4">4+</td>
+            <td id="r1_thW_05c5">3+</td>
+            <td id="r1_thW_05c6">-1</td>
+            <td id="r1_thW_05c7">D3</td>
+            <td id="r1_thW_05c8">1</td>
+            <td id="r1_thW_05c9hi">Mage's Staff</td>
+          </tr>
+          <tr id="r1_thW_13">
+            <td id="r1_thW_06c0"><input type="checkbox" id="thW_06" onclick="clickWea(this.id)"></td>
+            <td id="r1_thW_06c1" ondblclick="renameOne(event)" style="cursor: pointer;">Scythe</td>
+            <td id="r1_thW_06c2">2"</td>
+            <td id="r1_thW_06c3">4</td>
+            <td id="r1_thW_06c4">4+</td>
+            <td id="r1_thW_06c5">4+</td>
+            <td id="r1_thW_06c6">-1</td>
+            <td id="r1_thW_06c7">1</td>
+            <td id="r1_thW_06c8">1</td>
+            <td id="r1_thW_06c9hi">Scythe</td>
+          </tr>
+          <!-- <caption><b>MISSILE WEAPONS</b></caption> -->
+          <tr id="h1_thM__">
+            <th id="h1_thM___c0"></th>
+            <th id="h1_thM___c1">MISSILE WEAPONS</th>
+            <th id="h1_thM___c2">Rng</th>
+            <th id="h1_thM___c3">Att</th>
+            <th id="h1_thM___c4">Hit</th>
+            <th id="h1_thM___c5">Wnd</th>
+            <th id="h1_thM___c6">Rnd</th>
+            <th id="h1_thM___c7">Dmg</th>
+            <th id="h1_thM___c8">DP</th>
+            <th id="h1_thM___c9hi">x</th>
+          </tr>
+          <tr id="r1_thM_01">
+            <td id="r1_thM_01c0"><input type="checkbox" id="thM_01" onclick="clickWea(this.id)"></td>
+            <td id="r1_thM_01c1" ondblclick="renameOne(event)" style="cursor: pointer;">Bow</td>
+            <td id="r1_thM_01c2">18"</td>
+            <td id="r1_thM_01c3">2</td>
+            <td id="r1_thM_01c4">4+</td>
+            <td id="r1_thM_01c5">4+</td>
+            <td id="r1_thM_01c6">-</td>
+            <td id="r1_thM_01c7">2</td>
+            <td id="r1_thM_01c8">2</td>
+            <td id="r1_thM_01c9hi">Bow</td>
+          </tr>
+          <tr>
+            <td colspan="9" style="background-color: white;";></td>
+            <td id="p2___c9hi">x</td>  <!-- clear row no2 -->
+          </tr>
+          <tr id="h0_shis__">
+            <th class="headCap" id="h0_shis_c1" colspan="9" style="background-color: rgb(145 136 77); padding: 6px 14px;";>SHIELD</th>
+            <th id="h0_shis__hi">x</th>
+          </tr>
+          <!-- <caption><b>SHIELD</b></caption> -->
+          <tr id="r1_shi_01">
+            <td id="r1_shi_01c0"><input type="checkbox" id="shi_01" onclick="clickWea(this.id)"></td>
+            <td id="r1_shi_01c1" colspan=2><b>Restrictions:</b> No <t1>MALIGNANT</t1></td>
+            <td id="r1_shi_01c2" colspan=5 style="border-style: solid solid solid solid;";><b>[Characteristic Enhancement]</b><br>Improve your hero's Save characteristic by 1</td>
+            <td id="r1_shi_01c8">2</td> 
+            <td id="r1_shi_01c9hi">x</td>
+          </tr>
+          <tr>
+            <td colspan="9" style="background-color: white; border-style: none;";></td>
+          </tr>
+        </table>
+        </form>
+      </div><!-- end of weaponTable -->
+    </div><!-- end of calls "main" -->
+    <p></p>
+  </div><!-- end of class "row" -->
+
+  <div style="display: none;">
+    letzte Spalte ausblenden <button onclick="show_hide('none');">verstecke</button><br>
+    <br>
+    letzte Spalte ausblenden <button onclick="show_hide('inline');">zeige</button><br>
+    <br>
+    <button onclick="resetCheckStep3()">Reset CheckBoxes</button>
+    <button onclick="resetWeaName()">Reset WeaNames</button>
+    <br>
+    <p>Valid: <span id="validateStep3">not valid</span></p>
+    <p id="rewriteHeroArmoury">needed to rewrite hero's armoury</p>
+  </div>
+</div><!-- end of class "anvilSteps" -->
+
+<div id="step4" class="anvilSteps"><!-- Anvil of Apotheosis: STEP 4 - ARCHETYPES -->
+  <div class="row">
+    <div class="main">
+      <div>
+        <h2><b>STEP 4 – ARCHETYPES</b></h2>
+        <p>Next, you need to pick 1 of the following archtypes for your hero and then any associated abilities. There are 3 archetypes to choose from: <b>Commander</b>, <b>Acolyte</b> or <b>Mage</b>. Each of these will unlock different types of abilities for your hero. Commanders have access to command abilities. Acolytes have access to prayers and Mages have access to spells. Archetypes do not cost any destiny points.</p>
+        <p>You can rename any ability by double-clicking on the command ability name, prayer name or spell name. If you want to assign it to your hero, make sure it's renamed <b>before</b> you add it to the warscroll. Otherwise the new name will not show up on the warscroll.</p>
+      </div>
+      <div style="overflow-x:auto;">
+        <form id="archetypeForm" class="gwTable">
+        <table id="archetypesTable">
+          <tr id="h0_arcs__">
+            <th class="headCap" id="h0_arcs_c1" colspan="4" style="background-color: rgb(145 136 77); padding: 6px 14px;";>COMMANDER</th>
+            <th id="h0_arcs__hi">x</th>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>Keywords:</t1> None</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>Restrictions:</t1> No <t1>DEATHMAGE</t1> or <t1>MASTERCLAN</t1></td>
+            <td id=""></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>[Ability]</t1> Pick 1 of the following command abilities to add it to your hero’s warscroll.</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_01c0"><input type="radio" name="archetype" id="arc_01" onclick="extAddToWS(Ferious_Warlord, 'command', currentTab, this.id);"></td>
+            <td id="r1_arc_01c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Ferious Warlord</td>
+            <td id="r1_arc_01c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Ferious_Warlord" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Ferious Warlord:</t1> Once per battle, this general can issue the Forward to Victory or All-Out Attack command without a command point being spent.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_01c9hi">Ferious Warlord</td>            
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_02c0"><input type="radio" name="archetype" id="arc_02" onclick="extAddToWS(Beastmaster, 'command', currentTab, this.id);"></td>
+            <td id="r1_arc_02c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Beastmaster</td>
+            <td id="r1_arc_02c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Beastmaster" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Beastmaster:</t1> General with mount only. Once per battle, at the start of the combat phase, this general can goad their mount. If they do so, add 1 to hit rolls for attacks made by that generals mount in that phase.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_02c9hi">Beastmaster</td>            
+          </tr>
+          
+          <tr style="background-color: white;";>
+            <td id="" width=3%><br></td>  <!-- checkboxes -->
+            <td id="" width=25%></td>  <!-- ABILITY NAME -->
+            <td id="" width=70%></td>  <!-- DESCRIPTION-->
+            <td id="" width=2%></td>  <!-- hidden column to absorb padding of class "des"-->
+            <td id="p3___c9hi">x</td>  <!-- clear row no3 -->
+          </tr>
+          
+          <tr id="h1_arcs__">
+            <th class="headCap" id="h1_arcs_c1" colspan="4" style="background-color: rgb(145 136 77); padding: 6px 14px;";>ACOLYTE</th>
+            <th id="h1_arcs__hi">x</th>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>Keywords:</t1> <t1>PRIEST</t1></td>
+            <td id=""></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>Restrictions:</t1> No <t1>DAEMON</t1>, <t1>DEATHMAGE</t1>, <t1>SAURUS</t1> or <t1>SKAVEN</t1> (except <t1>CLANS PESTILENS</t1>)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="des" colspan="3" style="text-align: left; padding: 6px 14px;">
+              <t1>[Ability]</t1> Pick 1 of the following prayers bellow to add the following ability and the chosen prayer to your hero’s warscroll.
+              <!--<br><br>
+              <div id="Divine_Prayers" class="des" style="font-size: 115%;">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Divine Prayers:</t1> In your hero phase, this <t1>HERO</t1> can chant the following prayer. If they do so, make a prayer roll by rolling a dice. On a 1-2, the prayer is not answered. On a 3+, the prayer is answered.</td>
+                  </tr>
+                </table>
+              </div>-->
+            </td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_03c0"><input type="radio" name="archetype" id="arc_03" onclick="extAddToWS(Fury_of_Ghur, 'abilities', currentTab, this.id);"></td>
+            <td id="r1_arc_03c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Fury of Ghur</td>
+            <td id="r1_arc_03c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Fury_of_Ghur" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Fury of Ghur:</t1> This prayer has an answer value of 3 and a range of 18". If answered, pick 1 enemy unit within range and visible to the chanter. That unit suffers D3 mortal wounds.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_03c9hi">Fury of Ghur</td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_04c0"><input type="radio" name="archetype" id="arc_04" onclick="extAddToWS(Tame_Beast, 'abilities', currentTab, this.id);"></td>
+            <td id="r1_arc_04c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Tame Beast</td>
+            <td id="r1_arc_04c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Tame_Beast" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Tame Beast:</t1> This prayer has an answer value of 3 and a range of 18". If answered, pick 1 enemy <t1>MONSTER</t1> that is within range and visible to the chanter. until your next hero phase, that <t1>MONSTER</t1> cannot carry out a monstrous rampage.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_04c9hi">Tame Beast</td>
+          </tr>
+          
+          <tr style="background-color: white;";>
+            <td><br></td>
+            <td colspan=3></td>
+            <td id="p4___c9hi">x</td>  <!-- clear row no4 -->
+          </tr>
+          
+          <tr id="h1_arcs__">
+            <th class="headCap" id="h1_arcs_c1" colspan="4" style="background-color: rgb(145 136 77); padding: 6px 14px;";>MAGE</th>
+            <th id="h2_arcs__hi">x</th>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>Keywords:</t1> <t1>WIZARD</t1></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;"><t1>Restrictions:</t1> No <t1>DUARDIN</t1>, <t1>KHORNE</t1> or <t1>SAURUS</t1></td>
+            <td id=""></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: left; padding: 6px 14px;">
+              <t1>[Ability]</t1> Pick up to 1 spell from the Spell Table and add it to your hero’s warscroll.<br><br><t1>MAGIC</t1><br>
+              <div id="Magic_Abi" class="des" style="font-size: 115%;">
+                <table>
+                  <tr>
+                    <td class="des">This unit can attempt to cast 1 spell in your hero phase and attempt to unbind 1 spell in the enemy hero phase.</td>
+                    <!--<td class="des">This unit can attempt to cast 1 spell in your hero phase and attempt to unbind 1 spell in the enemy hero phase. They know the Arcane Bolt and Mystic Shield spells. In addition, they know any spells you have picked for them from the Spell Table.</td>-->
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_05c0"><input type="radio" name="archetype" id="arc_05" onclick="extAddToWS(Aura_of_Protection, 'magic', currentTab, this.id);"></td>
+            <td id="r1_arc_05c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Aura of Protection</td>
+            <td id="r1_arc_05c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Aura_of_Protection" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Aura of Protection:</t1> This spell has a casting value of 7 and a range of 12". If successfully cast, until the start of your next hero phase, friendly units have a ward of 6+ while they are wholly within range of the caster.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_05c9hi">Aura of Protection</td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_06c0"><input type="radio" name="archetype" id="arc_06" onclick="extAddToWS(Curse_of_Damnation, 'magic', currentTab, this.id);"></td>
+            <td id="r1_arc_06c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Curse of Damnation</td>
+            <td id="r1_arc_06c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Curse_of_Damnation" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Curse of Damnation:</t1> This spell has a casting value of 7 and a range of 12". If successfully cast, pick 1 enemy unit within range and visible to the caster. That unit suffers D3 mortal wounds. In addition, subtract 1 from save rolls for attacks that target that unit until the start of your next hero phase.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_06c9hi">Curse of Damnation</td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_07c0"><input type="radio" name="archetype" id="arc_07" onclick="extAddToWS(Metamorphosis, 'magic', currentTab, this.id);"></td>
+            <td id="r1_arc_07c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Metamorphosis</td>
+            <td id="r1_arc_07c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Metamorphosis" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Metamorphosis:</t1> This spell has a casting value of 5 and a range of 12". If successfully cast, pick 1 friendly <t1>HERO</t1> that is not a <t1>MONSTER</t1> and that is within range and visible to the caster. That <t1>HERO</t1> gains the <t1>MONSTER</t1> keyword until your next hero phase.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_07c9hi">Metamorphosis</td>
+          </tr>
+          
+          <tr>
+            <td id="r1_arc_08c0"><input type="radio" name="archetype" id="arc_08" onclick="extAddToWS(Raise_Dead, 'magic', currentTab, this.id);"></td>            
+            <td id="r1_arc_08c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;">Raise Dead</td>
+            <td id="r1_arc_08c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+              <div id="Raise_Dead" class="des">
+                <table>
+                  <tr>
+                    <td class="des"><t1>Raise Dead:</t1> This spell has a casting value of 6 and a range of 12". If successfully cast, pick 1 friendly unit within range and visible to the caster. You can return a number of slain models to that unit that have a combined Wounds characteristic of D3 or less.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td></td>
+            <td id="r1_arc_08c9hi">Raise Dead</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="background-color: white; border-style: none;";></td>
+          </tr>
+          
+        </table>
+        </form>
+      </div><!-- end of archtypeTable -->
+    </div><!-- end of calls "main" -->
+    <p></p>
+  </div><!-- end of class "row" -->
+
+  <div style="display: none;">
+    letzte Spalte ausblenden <button onclick="show_hide('none');">verstecke</button><br>
+    <br>
+    letzte Spalte ausblenden <button onclick="show_hide('inline');">zeige</button><br>
+    <br>
+    <button onclick="resetCheckStep4()">Reset CheckBoxes</button>
+    <button onclick="resetDescrName('archetypeForm')">Reset AbiNames</button>
+    <br>
+    <p>Valid: <span id="validateStep4">not valid</span></p>
+    <p id="rewriteSpellsPrayers">needed to rewrite spells and prayers</p>
+  </div>
+</div>
+
+<div id="step5" class="anvilSteps"><!-- Anvil of Apotheosis: STEP 5 - BESTIAL COMPANION -->
+  <div class="row" id="beastialCompanions1">
+    <div class="main">
+      <div>
+        <h2><b>STEP 5 – BESTIAL COMPANION</b></h2>
+        <p>In this step, you need to decide whether or not your hero will have a bestial companion. There are 3 types of bestial companion: <b>Minor Beast</b>, <b>Mounted Beast</b> or <b>Gargantuan Beast</b>. A hero can only have 1 bestial companion picked for them. A Minor Beast follows or guards your hero, such as Korghos Khul's Flesh Hound, Grizzlemaw. A Mounted Beast can be anything from a stallion to a Draceline or Rot Fly. A Gargantuan Beast is a truly colossal mount, such as a dragon, Thundertusk or Manticore. If you do not want to choose a bestial companion for your hero, you can skip this step.</p>
+        <p>You can pick 1 of the following bestial companions. Each costs a number of destiny points as listed in the table.</p>
+        <p>You can rename any beastial weapon by double-clicking on the weapon name. You can also give your beastial Companion a name, if you like. If you want to assign a bestial companion with renamed weapon(s) and/or its own name to your hero, make sure to rename anything you want <b>before</b> you add the beast to the warscroll. Otherwise the new name(s) will not show up on the warscroll.</p>
+      </div><!-- end of step description -->
+
+      <div style="overflow-x:auto;">
+        <form id="beastsForm" class="gwTable">
+        <table id="weaponsTable">
+          <tr id="h0_miBs__">
+            <th id="r1_miB_00c0" class="headCap" colspan=2 style="background-color: rgb(145 136 77); padding: 6px 14px;";>MINOR BEAST</th>
+            <th id="r1_miB_00c1" class="headCap" ondblclick="renameOne(event)" colspan=6 style="background-color: rgb(145 136 77); padding: 6px 14px; cursor: pointer;";>[double-click here to name your beast]</th>
+            <th id="r1_miB_00c9hi">[double-click here to name your beast]</th>
+          </tr>
+          <tr id="h1_miB_01">
+            <td id="h1_miB_01c0"><input type="radio" name="beast" id="miB_01" onclick="beastAddToWS(Minor_Beast, 'description', currentTab, this.id)"></td>
+            <td id="h1_miB_01c1"><b>Restrictions:</b> None</td>
+            <td id="h1_miB_01c2" colspan=5 style="border-style: solid solid solid solid;";><b>[Characteristic Enhancement]</b><br>Add 1 to your hero’s Wounds characteristic</td>
+            <td id="r1_miB_01c8">6</td>
+            <td id="h1_miB_01c9hi">x</td>
+          </tr>
+          <tr id="h1_miB__">
+            <th id="h1_miB___c1" colspan=2>MELEE WEAPONS</th>
+            <th id="h1_miB___c2">Rng</th>
+            <th id="h1_miB___c3">Att</th>
+            <th id="h1_miB___c4">Hit</th>
+            <th id="h1_miB___c5">Wnd</th>
+            <th id="h1_miB___c6">Rnd</th>
+            <th id="h1_miB___c7">Dmg</th>
+            <th id="h1_miB___c9hi">x</th>
+          </tr>
+          <tr id="r1_miB_02">
+            <td id="r1_miB_02c1" ondblclick="renameOne(event)" style="cursor: pointer;" colspan=2>Claws</td>
+            <td id="r1_miB_02c2">1"</td>
+            <td id="r1_miB_02c3">2</td>
+            <td id="r1_miB_02c4">5+</td>
+            <td id="r1_miB_02c5">5+</td>
+            <td id="r1_miB_02c6">-</td>
+            <td id="r1_miB_02c7">1</td>
+            <td id="r1_miB_02c9hi">Claws</td>
+          </tr>
+          <tr id="r1_miB_03">
+            <td id="r1_miB_03c1" ondblclick="renameOne(event)" style="cursor: pointer;" colspan=2>Maw</td>
+            <td id="r1_miB_03c2">1"</td>
+            <td id="r1_miB_03c3">1</td>
+            <td id="r1_miB_03c4">4+</td>
+            <td id="r1_miB_03c5">3+</td>
+            <td id="r1_miB_03c6">-1</td>
+            <td id="r1_miB_03c7">D3</td>
+            <td id="r1_miB_03c9hi">Maw</td>
+          </tr>
+          <tr>
+      <td colspan=8 style="text-align: left; padding: 6px 14px;">
+              Add the following text to your hero’s description:<br><br>
+              <div id="Minor_Beast" class="des" style="font-size: 115%;">
+                <table>
+                  <tr>
+                    <td class="des" style="border: none;"><t1>MINOR BEAST:</t1> This model’s Minor Beast attacks with its Claws and Maw. For rules purposes, it is treated the same as a mount.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="background-color: white;";>
+            <td width=3%><br></td>
+            <td width=37%></td>
+            <td width=10%></td>
+            <td width=10%></td>
+            <td width=10%></td>
+            <td width=10%></td>
+            <td width=10%></td>
+            <td width=10%></td>
+            <td id="p5___c9hi">x</td>  <!-- clear row no5 -->
+          </tr>
+
+          <tr id="h0_moBs__">
+            <th id="r1_moB_00c0" class="headCap" colspan=2 style="background-color: rgb(145 136 77); padding: 6px 14px;";>MOUNTED BEAST</th>
+            <th id="r1_moB_00c1" class="headCap" ondblclick="renameOne(event)" colspan=6 style="background-color: rgb(145 136 77); padding: 6px 14px; cursor: pointer;";>[double-click here to name your beast]</th>
+            <th id="r1_moB_00c9hi">[double-click here to name your beast]</th>
+          </tr>
+          <tr id="h1_moB_01">
+            <td id="h1_moB_01c0"><input type="radio" name="beast" id="moB_01" onclick="beastAddToWS(Mounted_Beast, 'description', currentTab, this.id)"></td>
+            <td id="h1_moB_01c1"><b>Restrictions:</b> No <t1>BULLGOR</t1> or <t1>DRAGON OGOR</t1></td>
+            <td id="h1_moB_01c2" colspan=5 style="border-style: solid solid solid solid;";><b>[Characteristic Enhancement]</b><br>Add 2 to your hero’s Wounds characteristic<br>Change your hero’s Move characteristic to 8"</td>
+            <td id="r1_moB_01c8">8</td> 
+            <td id="h1_moB_01c9hi">x</td>
+          </tr>
+          <tr id="h1_moB__">
+            <th id="h1_moB___c1" colspan=2>MELEE WEAPONS</th>
+            <th id="h1_moB___c2">Rng</th>
+            <th id="h1_moB___c3">Att</th>
+            <th id="h1_moB___c4">Hit</th>
+            <th id="h1_moB___c5">Wnd</th>
+            <th id="h1_moB___c6">Rnd</th>
+            <th id="h1_moB___c7">Dmg</th>
+            <th id="h1_moB___c9hi">x</th>
+          </tr>
+          <tr id="r1_moB_02">
+            <td id="r1_moB_02c1" ondblclick="renameOne(event)" style="cursor: pointer;" colspan=2>Claws</td>
+            <td id="r1_moB_02c2">1"</td>
+            <td id="r1_moB_02c3">2</td>
+            <td id="r1_moB_02c4">5+</td>
+            <td id="r1_moB_02c5">5+</td>
+            <td id="r1_moB_02c6">-</td>
+            <td id="r1_moB_02c7">1</td>
+            <td id="r1_moB_02c9hi">Claws</td>
+          </tr>
+          <tr id="r1_moB_03">
+            <td id="r1_moB_03c1" ondblclick="renameOne(event)" style="cursor: pointer;" colspan=2>Maw</td>
+            <td id="r1_moB_03c2">1"</td>
+            <td id="r1_moB_03c3">1</td>
+            <td id="r1_moB_03c4">4+</td>
+            <td id="r1_moB_03c5">3+</td>
+            <td id="r1_moB_03c6">-1</td>
+            <td id="r1_moB_03c7">D3</td>
+            <td id="r1_moB_03c9hi">Maw</td>
+          </tr>
+          <tr>
+      <td colspan=8 style="text-align: left; padding: 6px 14px;">
+              Add the following text to your hero’s description:<br><br>
+              <div id="Mounted_Beast" class="des" style="font-size: 115%;">
+                <table>
+                  <tr>
+                    <td class="des" style="border: none;"><t1>MOUNT:</t1> This model’s Mounted Beast attacks with its Claws and Maw.</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="background-color: white;";>
+            <td><br></td>
+            <td colspan=7></td>
+            <td id="p6___c9hi">x</td>  <!-- clear row no6 -->
+          </tr>
+
+          <tr id="h0_gaBs__">
+            <th id="r1_gaB_00c0" class="headCap" colspan=2 style="background-color: rgb(145 136 77); padding: 6px 14px;";>GARGANTUAN BEAST</th>
+            <th id="r1_gaB_00c1" class="headCap" ondblclick="renameOne(event)" colspan=6 style="background-color: rgb(145 136 77); padding: 6px 14px; cursor: pointer;";>[double-click here to name your beast]</th>
+            <th id="r1_gaB_00c9hi">[double-click here to name your beast]</th>
+          </tr>
+          <tr id="h1_gaB_01">
+            <td id="h1_gaB_01c0"><input type="radio" name="beast" id="gaB_01" onclick="beastAddToWS(Gargantuan_Beast, 'description', currentTab, this.id)"></td>
+            <td id="h1_gaB_01c1"><b>Restrictions:</b> No <t1>BULLGOR</t1> or <t1>DRAGON OGOR</t1></td>
+            <td id="h1_gaB_01c2" colspan=5 style="border-style: solid solid solid solid;";><b>[Characteristic Enhancement]</b><br>Add 8 to your hero’s Wounds characteristic<br>Change your hero’s Move characteristic to <img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:inline; margin: auto auto -2px;";></td>
+            <td id="r1_gaB_01c8">15</td> 
+            <td id="h1_gaB_01c9hi">x</td>
+          </tr>
+          <tr id="h1_gaB__">
+            <th id="h1_gaB___c1" colspan=2>MELEE WEAPONS</th>
+            <th id="h1_gaB___c2">Rng</th>
+            <th id="h1_gaB___c3">Att</th>
+            <th id="h1_gaB___c4">Hit</th>
+            <th id="h1_gaB___c5">Wnd</th>
+            <th id="h1_gaB___c6">Rnd</th>
+            <th id="h1_gaB___c7">Dmg</th>
+            <th id="h1_gaB___c9hi">x</th>
+          </tr>
+          <tr id="r1_gaB_02">
+            <td id="r1_gaB_02c1" ondblclick="renameOne(event)" style="cursor: pointer;" colspan=2>Claws</td>
+            <td id="r1_gaB_02c2">2"</td>
+            <td id="r1_gaB_02c3"><img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto;";></td>
+            <td id="r1_gaB_02c4">4+</td>
+            <td id="r1_gaB_02c5">3+</td>
+            <td id="r1_gaB_02c6">-1</td>
+            <td id="r1_gaB_02c7">2</td>
+            <td id="r1_gaB_02c9hi">Claws</td>
+          </tr>
+          <tr id="r1_gaB_01">
+            <td id="r1_gaB_03c1" ondblclick="renameOne(event)" style="cursor: pointer;" colspan=2>Maw</td>
+            <td id="r1_gaB_03c2">2"</td>
+            <td id="r1_gaB_03c3">2</td>
+            <td id="r1_gaB_03c4">3+</td>
+            <td id="r1_gaB_03c5">3+</td>
+            <td id="r1_gaB_03c6">-2</td>
+            <td id="r1_gaB_03c7"><img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto;";></td>
+            <td id="r1_gaB_03c9hi">Maw</td>
+          </tr>
+          <tr>
+      <td colspan=2 rowspan=2 style="text-align: left; padding: 6px 14px;">
+              Add the following text to your hero’s description:<br><br>
+              <div id="Gargantuan_Beast" class="des" style="font-size: 115%;">
+                <table>
+                  <tr>
+                    <td class="des" style="border: none;"><t1>MOUNT:</t1> This model’s Gargantuan Beast attacks with its Claws and Maw.</td>
+                  </tr>
+                </table>
+              </div><br>
+        Add the following keywords to your hero’s warscroll: <t1>MONSTER</t1><br>
+        Add the damage table on the right to your hero’s warscroll.
+            </td>
+          </tr>
+          <tr>
+            <td colspan=6>
+              <div id="GarBeast_DmgTable" class="gwTable" style="font-size: 105%;">
+              <table>
+                <tr>
+                  <th class="headCap" id="" colspan=4 style="text-align: center; background-color: rgb(145 136 77); padding: 3px 14px; font-size: 100%;";>DAMAGE TABLE</th>
+                </tr>
+                <tr>
+                  <th width=25%>Wounds Suffered</th>
+                  <th width=25%>Move</th>
+                  <th width=25%>Claws</th>
+                  <th width=25%>Maw</th>
+                </tr>
+                <tr>
+                  <td>0-6</td>
+                  <td>10"</td>
+                  <td>6</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>7-9</td>
+                  <td>8"</td>
+                  <td>5</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>10-12</td>
+                  <td>6"</td>
+                  <td>4</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>13+</td>
+                  <td>4"</td>
+                  <td>3</td>
+                  <td>1</td>
+                </tr>
+                <!--<tr>
+                  <td>12+</td>
+                  <td>2"</td>
+                  <td>2</td>
+                  <td>1</td>
+                </tr>-->
+              </table>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="background-color: white;";>
+            <td><br></td>
+            <td colspan=7></td>
+            <td id="p7___c9hi">x</td>  <!-- clear row no7 -->
+          </tr>
+
+          <tr id="h1_noB_01">
+            <td id="h1_noB_01c0"><input type="radio" name="beast" id="noB_01" onclick="beastAddToWS(none, 'description', currentTab, this.id)"></td>
+            <td id="h1_noB_01c1"><b>SKIP THIS STEP</b> (go on without a beastial companion)</td>
+            <td id="h1_noB_01c2" colspan=6></td>
+            <td id="h1_noB_01c9hi"><div id="none">x</div></td>
+          </tr>
+          <tr>
+            <td colspan="8" style="background-color: white; border-style: none;";></td>
+          </tr>
+        </table>
+        </form>
+      </div><!-- end of weaponTable -->
+      
+    </div><!-- end of main -->
+  </div><!-- end of row -->
+  
+  <div class="row" id="beastialCompanions2" style="display: none;">
+    <div class="main">
+      <div>
+        <h2><b>STEP 5 – BESTIAL COMPANION</b></h2>
+        <p>If you have picked a bestial companion for your hero, you can pick any of the following options for them. Each option costs a number of destiny points as listed in the table.</p>
+        <p>You can rename any ability by double-clicking on the ability name. If you want to assign a renamed ability to your hero, make sure this ability is renamed <b>before</b> you add it to the warscroll. Otherwise the new name will not show up on the warscroll.<br>(You cannot rename characteristic enhancements because they will not show up on your warscroll directly, but only increase the characteristic stats of your hero.)</p>
+        <p>If your desired selection is not allowed due to restrictions (e.g. improve the rend characteristic over -3), it will not be executed.</p>
+      </div><!-- end of step description -->
+    
+      <div class="beastsEnhAndAbi" style="overflow-x:auto;">
+        <form id="beastsAbiForm" class="gwTable">
+          <table id="beastsAbisTable">
+            
+            <tr id="h0_beas__">
+              <th class="headCap" id="h0_beas_c1" colspan="7" style="background-color: rgb(145 136 77); padding: 6px 14px;";>CHARACTERISTIC ENHANCEMENTS</th>
+              <th id="h0_beas__hi">x</th>
+            </tr>
+            
+            <tr id="r1_bea_01">
+              <td id="r1_bea_01c0"><input type="checkbox" id="bea_01" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_01c3"><input type="number" id="bea_01a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_bea_01c0"><input type="checkbox" id="bea_01b" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_01c3"><input type="number" id="bea_01c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_bea_01c1" style="font-weight: bold;">Savage Frency</td>
+              <td id="r1_bea_01c2" class="des" style="text-align: left;">Pick either the bestial companion’s Claws or Maw. Add 1 to the Attacks characteristic of that weapon. For Gargantuan Beasts, add 1 to each row of the appropriate column in the damage table.</td>
+              <td id="r1_bea_01c8">1</td>
+              <td id="r1_bea_01c9hi">Savage Frenzy</td>
+            </tr>
+            
+            <tr id="r1_bea_02">
+              <td id="r1_bea_02c0"><input type="checkbox" id="bea_02" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_02c3"><input type="number" id="bea_02a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_bea_02c0"><input type="checkbox" id="bea_02b" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_02c3"><input type="number" id="bea_02c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_bea_02c1" style="font-weight: bold;">Savage Ferocity</td>
+              <td id="r1_bea_02c2" class="des" style="text-align: left;">Pick either the bestial companion’s Claws or Maw. Improve the To Hit characteristic of that weapon by 1.</td>
+              <td id="r1_bea_02c8">1</td>
+              <td id="r1_bea_02c9hi">Savage Ferocity</td>
+            </tr>
+            
+            <tr id="r1_bea_03">
+              <td id="r1_bea_03c0"><input type="checkbox" id="bea_03" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_03c3"><input type="number" id="bea_03a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_bea_03c0"><input type="checkbox" id="bea_03b" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_03c3"><input type="number" id="bea_03c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_bea_03c1" style="font-weight: bold;">Savage Strength</td>
+              <td id="r1_bea_03c2" class="des" style="text-align: left;">Pick either the bestial companion’s Claws or Maw. Improve the To Wound characteristic of that weapon by 1.</td>
+              <td id="r1_bea_03c8">1</td>
+              <td id="r1_bea_03c9hi">Savage Strength</td>
+            </tr>
+            
+            <tr id="r1_bea_04">
+              <td id="r1_bea_04c0"><input type="checkbox" id="bea_04" onclick="addBeastEnh(this.id);"></td>
+              <td id="r1_bea_04c3"><input type="number" id="bea_04a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td></td>
+              <td></td>
+              <td id="r1_bea_04c1" style="font-weight: bold;">Razor-sharp Claws</td>
+              <td id="r1_bea_04c2" class="des" style="text-align: left;">Improve the Rend characteristic of the bestial
+companion’s Claws by 1 (to a maximum of -3).</td>
+              <td id="r1_bea_04c8">2</td>
+              <td id="r1_bea_04c9hi">Razor-sharp Claws</td>
+            </tr>
+            
+            <tr style="background-color: white;";>
+              <td id="" width=3%><br></td>  <!-- checkboxes -->
+              <td id="" width=3%></td>  <!-- valueboxes -->
+              <td id="" width=3%></td>  <!-- checkboxes -->
+              <td id="" width=3%></td>  <!-- valueboxes -->
+              <td id="" width=15%></td>  <!-- ABILITY NAME -->
+              <td id="" width=68%></td>  <!-- DESCRIPTION-->
+              <td id="" width=5%></td>  <!-- DPs -->
+              <td id="p8___c9hi">x</td>  <!-- clear row no8 -->
+            </tr>
+            
+            <tr id="h0_be2s__">
+              <th class="headCap" id="h0_be2s_c1" colspan="7" style="background-color: rgb(145 136 77); padding: 6px 14px;";>ABILITIES</th>
+              <th id="h0_be2s__hi">x</th>
+            </tr>
+            
+            <tr id="r1_bea_05">
+              <td id="r1_bea_05c0"><input type="checkbox" id="bea_05" onclick="addToWS(Fly_Beast, 'description', currentTab, this.id);"></td>
+              <td id="r1_bea_05c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Winged Beast</td>
+              <td id="r1_bea_05c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Fly_Beast" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Fly:</t1> This model can fly.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_bea_05c7" class="des" style="font-size: 85%;"><b>Restrictions: </b>No Minor Beast</p>
+              </td>
+              <td id="r1_bea_05c8">4</td>
+              <td id="r1_bea_05c9hi">Winged Beast</td>
+            </tr>
+            
+            <tr id="r1_bea_06">
+              <td id="r1_bea_06c0"><input type="checkbox" id="bea_06" onclick="addToWS(Breath_Attack, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_06c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Breath Attack</td>
+              <td id="r1_bea_06c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Breath_Attack" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Breath Attack:</t1> In your shooting phase, you can pick 1 enemy unit within 6" of this model. Roll a number of dice equal to the number of models from that enemy unit that are within 6" of this model. For each 6, that enemy unit suffers 1 mortal wound.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_bea_06c7" class="des" style="font-size: 85%;"><b>Restrictions: </b>Gargantuan Beast only</p>
+              </td>
+              <td id="r1_bea_06c8">4</td>
+              <td id="r1_bea_06c9hi">Breath Attack</td>
+            </tr>
+            
+            <tr id="r1_bea_07">
+              <td id="r1_bea_07c0"><input type="checkbox" id="bea_07" onclick="addToWS(Vicious_Charge, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_07c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Vicious Charge</td>
+              <td id="r1_bea_07c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Vicious_Charge" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Vicious Charge:</t1> After this model makes a charge move, you can pick 1 enemy unit within 1" of this model and roll a dice. On a 2+, that enemy unit suffers D3 mortal wounds.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_bea_07c8">1</td>
+              <td id="r1_bea_07c9hi">Vicious Charge</td>
+            </tr>
+            
+            <tr id="r1_bea_08">
+              <td id="r1_bea_08c0"><input type="checkbox" id="bea_08" onclick="addToWS(Poisonous_Bite, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_08c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Poisonous Bite</td>
+              <td id="r1_bea_08c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Poisonous_Bite" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Poisonous Bite:</t1> If the unmodified hit roll for an attack made with the bestial companion’s Maw is 6, that attack inflicts 1 mortal wound on the target in addition to any normal damage.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_bea_08c8">2</td>
+              <td id="r1_bea_08c9hi">Poisonous Bite</td>
+            </tr>
+            
+            <tr id="r1_bea_09">
+              <td id="r1_bea_09c0"><input type="checkbox" id="bea_09" onclick="addToWS(Gobble_Attack, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_09c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Gobble Attack</td>
+              <td id="r1_bea_09c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Gobble_Attack" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Gobble Attack:</t1> Each time this model attacks, after all of this model’s attacks have been resolved, you can pick 1 enemy model within 1" of this model and roll a dice. If the roll is equal to or greater than that enemy model’s Wounds characteristic, it is slain.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_bea_09c7" class="des" style="font-size: 85%;"><b>Restrictions: </b>Gargantuan Beast only</p>
+              </td>
+              <td id="r1_bea_09c8">3</td>
+              <td id="r1_bea_09c9hi">Gobble Attack</td>
+            </tr>
+            
+            <tr id="r1_bea_10">
+              <td id="r1_bea_10c0"><input type="checkbox" id="bea_10" onclick="addToWS(Terror, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_10c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Terror</td>
+              <td id="r1_bea_10c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Terror" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Terror:</t1> Subtract 1 from the Bravery characteristic of enemy units while they are within 3" of any friendly units with this ability.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_bea_10c7" class="des" style="font-size: 85%;"><b>Restrictions: </b>Gargantuan Beast only</p>
+              </td>
+              <td id="r1_bea_10c8">1</td>
+              <td id="r1_bea_10c9hi">Terror</td>
+            </tr>
+            
+            <tr id="r1_bea_11">
+              <td id="r1_bea_11c0"><input type="checkbox" id="bea_11" onclick="addToWS(Lashing_Tail, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_11c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Lashing Tail</td>
+              <td id="r1_bea_11c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Lashing_Tail" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Lashing Tail:</t1> At the end of the combat phase, roll a dice for each enemy unit within 3" of this model. If the roll is less than the number of models in that unit, that unit suffers D3 mortal wounds.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_bea_11c7" class="des" style="font-size: 85%;"><b>Restrictions: </b>Gargantuan Beast only</p>
+              </td>
+              <td id="r1_bea_11c8">3</td>
+              <td id="r1_bea_11c9hi">Lashing Tail</td>
+            </tr>
+            
+            <tr id="r1_bea_12">
+              <td id="r1_bea_12c0"><input type="checkbox" id="bea_12" onclick="addToWS(Stomp, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_bea_12c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Stomp</td>
+              <td id="r1_bea_12c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Stomp" class="des">
+                  <table>
+                    <tr>
+                      <td class="des" style="border: none;"><t1>Stomp:</t1> At the end of the combat phase, you can pick 1 enemy unit within 1" of this unit and roll a dice. On a 2+, that enemy unit suffers D3 mortal wounds.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_bea_12c7" class="des" style="font-size: 85%;"><b>Restrictions: </b>Gargantuan Beast only</p>
+              </td>
+              <td id="r1_bea_12c8">2</td>
+              <td id="r1_bea_12c9hi">Stomp</td>
+            </tr>
+            <tr>
+              <td colspan="7" style="background-color: white; border-style: none;";></td>
+            </tr>
+            
+          </table>
+        </form>
+      </div><!-- end of weaponTable -->
+      
+    </div><!-- end of main -->
+  </div><!-- end of row -->
+  
+  <div id="showBeaAbis" class="main" style="overflow:auto; padding: 0px 0px 15px; display: none;">
+    <div style="text-align:center;">  <!-- style="float:right;" -->
+      <button class="grandButton" id="beastEnhAbis" onclick="showBeastAbis(this.id)" style="width: 500px;">SHOW BEASTIAL COMPANION ENHANCEMENTS AND ABILITIES</button>
+    </div>
+    <p></p>
+  </div>
+
+  <div style="display: none;">
+    letzte Spalte ausblenden <button onclick="show_hide('none');">verstecke</button><br>
+    <br>
+    letzte Spalte ausblenden <button onclick="show_hide('inline');">zeige</button><br>
+    <br>
+    <button onclick="resetCheckStep5()">Reset CheckBoxes</button>
+    <button onclick="resetDescrName('beastsForm')">Reset BeastsNames</button>
+    <br>
+    <p>Valid: <span id="validateStep5">not valid</span></p>
+    <p id="rewriteBeasts">needed to rewrite beast description</p>
+  </div>
+</div>
+
+<div id="step6" class="anvilSteps"><!-- Anvil of Apotheosis: STEP 6 - CHARACTERISTIC ENHANCEMENTS AND ABILITIES -->
+  <div class="row">
+    <div class="main">
+      <div>
+        <h2><b>STEP 6 – CHARACTERISTIC ENHANCEMENTS AND ABILITIES</b></h2>
+        <p>The final step is to pick any other options for your hero. Each costs a number of destiny points as listed in the tables.</p>
+        <p>You can rename any ability by double-clicking on the ability name. If you want to assign a renamed ability to your hero, make sure this ability is renamed <b>before</b> you add it to the warscroll. Otherwise the new name will not show up on the warscroll.<br>(You cannot rename characteristic enhancements because they will not show up on your warscroll directly, but only increase the characteristic stats of your hero.)</p>
+        <p>If your desired selection is not allowed due to restrictions (e.g. improve the save characteristic over 3+), it will not be executed.</p>
+      </div><!-- end of step description -->
+   
+    
+      <div class="enhancementANDabilities" style="overflow-x:auto;">
+        <form id="abilitiesForm" class="gwTable">
+          <table>
+            
+            <tr id="h0_enhs__">
+              <th class="headCap" id="h0_enhs_c1" colspan="7" style="background-color: rgb(145 136 77); padding: 6px 14px;";>CHARACTERISTIC ENHANCEMENTS</th>
+              <th id="h0_enhs__hi">x</th>
+            </tr>
+            
+            <tr id="r1_enh_01">
+              <td id="r1_enh_01c0"><input type="checkbox" id="enh_01" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_01c3"><input type="number" id="enh_01a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td></td>
+              <td></td>
+              <td id="r1_enh_01c1" style="font-weight: bold;">Superior Speed</td>
+              <td id="r1_enh_01c2" class="des" style="text-align: left;">Add 1 to your hero’s Move characteristic.</td>
+              <td id="r1_enh_01c8">2</td>
+              <td id="r1_enh_01c9hi">Superior Speed</td>
+            </tr>
+            
+            <tr id="r1_enh_02">
+              <td id="r1_enh_02c0"><input type="checkbox" id="enh_02" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_02c3"><input type="number" id="enh_02a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td></td>
+              <td></td>
+              <td id="r1_enh_02c1" style="font-weight: bold;">Superior Vitality</td>
+              <td id="r1_enh_02c2" class="des" style="text-align: left;">Add 1 to your hero’s Wounds characteristic.</td>
+              <td id="r1_enh_02c8">1</td>
+              <td id="r1_enh_02c9hi">Superior Vitality</td>
+            </tr>
+            
+            <tr id="r1_enh_03">
+              <td id="r1_enh_03c0"><input type="checkbox" id="enh_03" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_03c3"><input type="number" id="enh_03a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td></td>
+              <td></td>
+              <td id="r1_enh_03c1" style="font-weight: bold;">Superior Leadership</td>
+              <td id="r1_enh_03c2" class="des" style="text-align: left;">Add 1 to your hero’s Bravery characteristic.</td>
+              <td id="r1_enh_03c8">1</td>
+              <td id="r1_enh_03c9hi">Superior Leadership</td>
+            </tr>
+            
+            <tr id="r1_enh_04">
+              <td id="r1_enh_04c0"><input type="checkbox" id="enh_04" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_04c3"><input type="number" id="enh_04a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td></td>
+              <td></td>
+              <td id="r1_enh_04c1" style="font-weight: bold;">Extra Armour</td>
+              <td id="r1_enh_04c2" class="des" style="text-align: left;">Improve your hero’s Save characteristic by 1 (to a maximum of 3+).</td>
+              <td id="r1_enh_04c8">2</td>
+              <td id="r1_enh_04c9hi">Extra Armour</td>
+            </tr>
+            
+            <tr id="r1_enh_07">
+              <td id="r1_enh_07c0"><input type="checkbox" id="enh_07" onclick="addCharEnh(this.id);"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td id="r1_enh_07c1" style="font-weight: bold;">Battle Standard Bearer</td>
+              <td id="r1_enh_07c2" class="des" style="text-align: left;">This model gains the TOTEM keyword.</td>
+              <td id="r1_enh_07c8">1</td>
+              <td id="r1_enh_07c9hi">Battle Standard Bearer</td>
+            </tr>
+            
+            <tr id="r1_enh_10">
+              <td id="r1_enh_10c0"><input type="checkbox" id="enh_10" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_10c3"><input type="number" id="enh_10a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_10c0"><input type="checkbox" id="enh_10b" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_10c3"><input type="number" id="enh_10c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_10c1" style="font-weight: bold;">Ferocity</td>
+              <td id="r1_enh_10c2" class="des" style="text-align: left;">Pick 1 of your hero’s weapons (not including mount weapons). Add 1 to the Attacks characteristic of that weapon.</td>
+              <td id="r1_enh_10c8">2</td>
+              <td id="r1_enh_10c9hi">Ferocity</td>
+            </tr>
+            
+            <tr id="r1_enh_08">
+              <td id="r1_enh_08c0"><input type="checkbox" id="enh_08" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_08c3"><input type="number" id="enh_08a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_08c0"><input type="checkbox" id="enh_08b" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_08c3"><input type="number" id="enh_08c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_08c1" style="font-weight: bold;">Weapon Master</td>
+              <td id="r1_enh_08c2" class="des" style="text-align: left;">Pick 1 of your hero’s weapons (not including mount weapons). Improve the To Hit characteristic of that weapon by 1.</td>
+              <td id="r1_enh_08c8">2</td>
+              <td id="r1_enh_08c9hi">Weapon Master</td>
+            </tr>
+            
+            <tr id="r1_enh_09">
+              <td id="r1_enh_09c0"><input type="checkbox" id="enh_09" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_09c3"><input type="number" id="enh_09a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_09c0"><input type="checkbox" id="enh_09b" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_09c3"><input type="number" id="enh_09c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_09c1" style="font-weight: bold;">Superior Strength</td>
+              <td id="r1_enh_09c2" class="des" style="text-align: left;">Pick 1 of your hero’s weapons (not including mount weapons). Improve the To Wound characteristic of that weapon by 1.</td>
+              <td id="r1_enh_09c8">2</td>
+              <td id="r1_enh_09c9hi">Superior Strength</td>
+            </tr>
+            
+            <tr id="r1_enh_06">
+              <td id="r1_enh_06c0"><input type="checkbox" id="enh_06" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_06c3"><input type="number" id="enh_06a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_06c0"><input type="checkbox" id="enh_06b" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_06c3"><input type="number" id="enh_06c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_06c1" style="font-weight: bold;">Sharpened Edge</td>
+              <td id="r1_enh_06c2" class="des" style="text-align: left;">Pick 1 of your hero’s weapons (not including mount weapons). Improve the Rend characteristic of that weapon by 1 (to a maximum of -3).</td>
+              <td id="r1_enh_06c8">2</td>
+              <td id="r1_enh_06c9hi">Sharpened Edge</td>
+            </tr>
+            
+            <tr id="r1_enh_05">
+              <td id="r1_enh_05c0"><input type="checkbox" id="enh_05" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_05c3"><input type="number" id="enh_05a" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_05c0"><input type="checkbox" id="enh_05b" onclick="addCharEnh(this.id);"></td>
+              <td id="r1_enh_05c3"><input type="number" id="enh_05c" min="1" max="3" value="1" maxlength="1" size="1"></td>
+              <td id="r1_enh_05c1" style="font-weight: bold;">Mighty Weapon</td>
+              <td id="r1_enh_05c2" class="des" style="text-align: left;">Pick 1 of your hero’s weapons (not including mount weapons). Add 1 to the Damage characteristic of that weapon. Weapons that have a random Damage characteristic cannot be picked.</td>
+              <td id="r1_enh_05c8">2</td>
+              <td id="r1_enh_05c9hi">Mighty Weapon</td>
+            </tr>
+            
+            <tr style="background-color: white;";>
+              <td id="" width=3%><br></td>  <!-- checkboxes -->
+              <td id="" width=3%></td>  <!-- valueboxes -->
+              <td id="" width=3%></td>  <!-- checkboxes -->
+              <td id="" width=3%></td>  <!-- valueboxes -->
+              <td id="" width=15%></td>  <!-- ABILITY NAME -->
+              <td id="" width=68%></td>  <!-- DESCRIPTION-->
+              <td id="" width=5%></td>  <!-- DPs -->
+              <td id="p9___c9hi">x</td>  <!-- clear row no9 -->
+            </tr>
+            
+            <tr id="h0_abis__">
+              <th class="headCap" id="h0_abis_c1" colspan="7" style="background-color: rgb(145 136 77); padding: 6px 14px;";>ABILITIES</th>
+              <th id="h0_abis__hi">x</th>
+            </tr>
+            
+            <tr id="r1_abi_01">
+              <td id="r1_abi_01c0"><input type="checkbox" id="abi_01" onclick="addToWS(Ethereal, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_01c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Ethereal</td>
+              <td id="r1_abi_01c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Ethereal" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Ethereal:</t1> Ignore modifiers (positive or negative) when making save rolls for attacks that target this model.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_01c8">4</td>
+              <td id="r1_abi_01c9hi">Ethereal</td>
+            </tr>
+            
+            <tr id="r1_abi_02">
+              <td id="r1_abi_02c0"><input type="checkbox" id="abi_02" onclick="addToWS(Ward, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_02c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Ward</td>
+              <td id="r1_abi_02c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Ward" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Ward:</t1> Roll a dice each time a wound or mortal wound is allocated to this model. On a 6, that wound or mortal wound is negated.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_02c8">3</td>
+              <td id="r1_abi_02c9hi">Ward</td>
+            </tr>
+            
+            <tr id="r1_abi_03">
+              <td id="r1_abi_03c0"><input type="checkbox" id="abi_03" onclick="addToWS(Fly, 'description', currentTab, this.id);"></td>
+              <td id="r1_abi_03c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Fly</td>
+              <td id="r1_abi_03c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Fly" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Fly:</t1> This model can fly.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_03c8">4</td>
+              <td id="r1_abi_03c9hi">Fly</td>
+            </tr>
+            
+            <tr id="r1_abi_04">
+              <td id="r1_abi_04c0"><input type="checkbox" id="abi_04" onclick="addToWS(Frenzy, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_04c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Frenzy</td>
+              <td id="r1_abi_04c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Frenzy" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Frenzy:</t1> If the unmodified hit roll for an attack made with this model’s melee weapons (not including mount weapons) is 6, that attack scores 2 hits on the target instead of 1. Make a wound and save roll for each hit.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_04c8">3</td>
+              <td id="r1_abi_04c9hi">Frenzy</td>
+            </tr>
+            
+            <tr id="r1_abi_05">
+              <td id="r1_abi_05c0"><input type="checkbox" id="abi_05" onclick="addToWS(Regenerate, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_05c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Regenerate</td>
+              <td id="r1_abi_05c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Regenerate" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Regenerate:</t1> In your hero phase, you can roll a dice for this model. If you do so, on a 4+, heal up to D3 wounds allocated to this model.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_05c8">3</td>
+              <td id="r1_abi_05c9hi">Regenerate</td>
+            </tr>
+            
+            <tr id="r1_abi_06">
+              <td id="r1_abi_06c0"><input type="checkbox" id="abi_06" onclick="addToWS(Inspiring, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_06c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Inspiring</td>
+              <td id="r1_abi_06c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Inspiring" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Inspiring:</t1> While friendly units are wholly within 12" of this model, they can use this model’s Bravery characteristic instead their own. Increase the range of this ability to 18" if this model is a TOTEM.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_06c8">1</td>
+              <td id="r1_abi_06c9hi">Inspiring</td>
+            </tr>
+            
+            <tr id="r1_abi_07">
+              <td id="r1_abi_07c0"><input type="checkbox" id="abi_07" onclick="addToWS(Consummate_Commander, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_07c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Consummate Commander</td>
+              <td id="r1_abi_07c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Consummate_Commander" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Consummate Commander:</t1> If this model is part of your army, at the start of the first battle round, you receive 1 extra command point.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_07c8">5</td>
+              <td id="r1_abi_07c9hi">Consummate Commander</td>
+            </tr>
+            
+            <tr id="r1_abi_08">
+              <td id="r1_abi_08c0"><input type="checkbox" id="abi_08" onclick="addToWS(Archmage, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_08c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Archmage</td>
+              <td id="r1_abi_08c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Archmage" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Archmage:</t1> Add 1 to casting and unbinding rolls for this model.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_abi_09c7" class="des" style="font-size: 85%;"><b>Restrictions: </b><t1>WIZARD</t1> only</p>
+              </td>
+              <td id="r1_abi_08c8">3</td>
+              <td id="r1_abi_08c9hi">Archmage</td>
+            </tr>
+            
+            <tr id="r1_abi_09">
+              <td id="r1_abi_09c0"><input type="checkbox" id="abi_09" onclick="addToWS(Arch_priest, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_09c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Arch-priest</td>
+              <td id="r1_abi_09c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Arch_priest" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Arch-priest:</t1> Add 1 to prayer rolls for this model.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p id="r1_abi_09c7" class="des" style="font-size: 85%;"><b>Restrictions: </b><t1>PRIEST</t1> only</p>
+              </td>
+              <td id="r1_abi_09c8">3</td>
+              <td id="r1_abi_09c9hi">Arch-priest</td>
+            </tr>
+            
+            <tr id="r1_abi_10">
+              <td id="r1_abi_10c0"><input type="checkbox" id="abi_10" onclick="addToWS(Zealot, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_10c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Zealot</td>
+              <td id="r1_abi_10c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Zealot" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Zealot:</t1> This model can run and still charge in the same turn.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_10c8">4</td>
+              <td id="r1_abi_10c9hi">Zealot</td>
+            </tr>
+            
+            <tr id="r1_abi_11">
+              <td id="r1_abi_11c0"><input type="checkbox" id="abi_11" onclick="addToWS(Decapitating_Strike, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_11c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Decapitating Strike</td>
+              <td id="r1_abi_11c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Decapitating_Strike" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Decapitating Strike:</t1> If the unmodified wound roll for an attack made with this model’s melee weapons (not including mount weapons) is 6, that attack inflicts 1 mortal wound on the target in addition to any normal damage.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_11c8">4</td>
+              <td id="r1_abi_11c9hi">Decapitating Strike</td>
+            </tr>
+            
+            <tr id="r1_abi_12">
+              <td id="r1_abi_12c0"><input type="checkbox" id="abi_12" onclick="addToWS(Deadeye, 'abilities', currentTab, this.id);"></td>
+              <td id="r1_abi_12c1" ondblclick="renameOne(event)" style="cursor: pointer; font-weight: bold;" colspan=4;>Deadeye</td>
+              <td id="r1_abi_12c2" style="font-size: 125%; padding: 2px 0px 0px 2px">
+                <div id="Deadeye" class="des">
+                  <table>
+                    <tr>
+                      <td class="des"><t1>Deadeye:</t1> If the unmodified hit roll for an attack made with this model’s missile weapons (not including mount weapons) is 6, that attack inflicts 1 mortal wound on the target in addition to any normal damage.</td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td id="r1_abi_12c8">4</td>
+              <td id="r1_abi_12c9hi">Deadeye</td>
+            </tr>
+            <tr>
+              <td colspan="7" style="background-color: white; border-style: none;";></td>
+            </tr>
+            
+          </table>
+        </form>
+      </div><!-- end of weaponTable -->
+    
+    </div><!-- end of main -->
+    <p></p>
+  </div><!-- end of row -->
+
+  <div style="display: none;">
+    letzte Spalte ausblenden <button onclick="show_hide('none');">verstecke</button><br>
+    <br>
+    letzte Spalte ausblenden <button onclick="show_hide('inline');">zeige</button><br>
+    <br>
+    <button onclick="resetCheckStep6()">Reset CheckBoxes</button>
+    <button onclick="resetDescrName('abilitiesForm')">Reset AbiNames</button>
+    <br>
+    <p>Valid: <span id="validateStep6">validated</span></p>
+  </div>
+</div>
+
+<div id="step7" class="anvilSteps"><!-- Anvil of Apotheosis: full WARSCROLL -->
+  <div class="row">
+    <div class="main">
+      <h2><b>YOUR WARSCROLL</b></h2>
+      <p>It is done! Well, nearly.<br>At this point you can give your hero/villain a name and write a short story about him/her/it. After this, you will have finally created your own hero/villain for Warhammer - Age of Sigmar.<br>You can save your warscroll as pdf or jpg, to use in your games or as you like to.</p>
+      <br>
+      <div  style="overflow-x:auto;">
+        <table class="" style="border: none; width: 100%">
+          <tr>
+            <td>Choose a format fitting for your warscroll:</td>
+            <td><select id="cardFormats" onchange="changeSize()" style="width: 350px; height: 30px;">
+              <option value="a6" data-card-width="148" data-card-height="105" data-card-orientation="landscape">A6 Page (148mm × 105mm)</option>
+              <option value="⅓-A4" selected="selected" data-card-width="210" data-card-height="99" data-card-orientation="portrait">⅓ A4 Page (210mm × 99mm)</option><!-- &#189; -->
+              <option value="A5" data-card-width="210" data-card-height="148" data-card-orientation="portrait">A5 (½ A4) Page (210mm × 148mm)</option><!-- &#8531; -->
+              <option value="full-page" data-card-width="210" data-card-height="297" data-card-orientation="portrait">A4 Page (210mm × 297mm)</option>
+              <option value="large-card" data-card-width="146" data-card-height="89" data-card-orientation="landscape">Large Card (146mm × 89mm)</option>
+              <option value="autosize-card" data-card-width="210" data-card-height="59" data-card-orientation="landscape" selected>automatic Size (210mm × ??mm)</option>
+          </select></td>
+          </tr>
+          <tr>
+            <td width=30%></td>
+            <td width=70%></td>
+          </tr>
+          <tr>
+            <td>Name your hero:</td>
+            <td><input type="text" id="heroesName" oninput="nameYourHero()" style="width: 100%; height: 30px;" placeholder="Enter your heros name here"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Describe your hero:</td>
+            <td><textarea type="text" id="heroesDescr" oninput="describeYourHero()" style="width: 100%; height: 130px;" placeholder="Enter your heros description here"></textarea></td>
+          </tr>
+        </table>
+      </div>
+      <br>
+  
+      <div class="row">
+        <div>
+          <table class="gwTable des" style="border: 1px solid rgb(185 178 137); width: 100%">
+            <tr>
+              <th class="headCap" id="h0_ohWs_c1" colspan=2 style="background-color: rgb(145 136 77); padding: 6px 14px;";><t1>USING YOUR HERO IN BATTLE</t1></th>
+            </tr>
+              <td colspan=2 style="padding: 15px;">Once you have created your hero, you are ready to field them in battles. Your hero can be used in any battle, as long as you have received your opponent’s permission to include them in your army. You must get permission for each Anvil of Apotheosis hero you want to include, and your opponent can choose to allow you to use some but not others if they wish.
+              <br><br>If you are allowed to include your hero in your army, count the number of destiny points you have spent on your hero and multiply the total by 10. This is the Pitched Battle points value of that hero. In addition your hero has the Leader battlefield role, unless it has the <t1>MONSTER</t1> keyword, in which case it has the Leader and Behemoth battlefield role.</td>
+            <tr>
+            </tr>
+            <tr>
+              <td style="width: 50%; padding: 15px; border: 1px solid rgb(185 178 137); border-style: none solid none none;"><b>Path to Glory:</b> You can add a hero to your order of battle if you complete the 'Hero Quest' quest.</td>
+              <td style="width: 50%; padding: 15px;"><b>Tournaments:</b> If you are taking part in a matched play tournament, you are only allowed to use your hero if the tournament organizers have specifically said that Anvil of Apotheosis heroes can be used.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+  
+      <br><br>
+      <p>Unfortunately, there is no possibility to save your warscroll yet.<br>But you can make a screenshot of your heros warscroll and save it by using other programs.</p>
+      <div id="saveButtons" style="display: none;">
+      
+      
+      
+      
+      <a class="grandButton" id="download_your_warscroll" href="#">Save as PNG</a>
+      <button id="download_your_warscroll2" href="#" onclick="testButton()">Save as PNG</button>
+      <br>
+      <button onclick="downloadWS()" class="clickbtn">Click To Download Image</button>
+      
+      
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<br>
+<div style="overflow:auto;">
+  <div style="text-align:center;">  <!-- style="float:right;" -->
+    <button class="navButton" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button class="navButton" id="resetBtn" onclick="nextPrev(0)">Reset</button>
+    <button class="navButton" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align: center; margin-top: 25px;">
+  <span class="step" style="display: none;">0</span>
+  <span class="step">1</span>
+  <span class="step">2</span>
+  <span class="step">3</span>
+  <span class="step">4</span>
+  <span class="step">5</span>
+  <span class="step">6</span>
+  <span class="step" style="display: none;">7</span>
+</div>
+<br>
+
+<div id="originalStatsDatas" style="display: none;">
+<div id="orgHeroAncestry"></div>
+
+<button onclick="displayOrgStats()">Show/Hide OriginalStats</button>
+
+<div id="orgStatsTable">
+  <table style="width: 300px; font-size: 10px; border: 1px solid black;">
+    <tr>
+      <th width=28%>Stat</th>
+      <th width=12%>Step 1</th>
+      <th width=12%>Step 2</th>
+      <th width=12%>Step 3</th>
+      <th width=12%>Step 4</th>
+      <th width=12%>Step 5</th>
+      <th width=12%>Step 6</th>
+    </tr>
+    <tr>
+      <td>Move</td>
+      <td id="orgMove01">0</td>
+      <td id="orgMove02">0</td>
+      <td id="orgMove03">0</td>
+      <td id="orgMove04">0</td>
+      <td id="orgMove05">0</td>
+      <td id="orgMove06">0</td>
+    </tr>
+    <tr>
+      <td>Save</td>
+      <td id="orgSave01">0</td>
+      <td id="orgSave02">0</td>
+      <td id="orgSave03">0</td>
+      <td id="orgSave04">0</td>
+      <td id="orgSave05">0</td>
+      <td id="orgSave06">0</td>
+    </tr>
+    <tr>
+      <td>Bravery</td>
+      <td id="orgBrav01">0</td>
+      <td id="orgBrav02">0</td>
+      <td id="orgBrav03">0</td>
+      <td id="orgBrav04">0</td>
+      <td id="orgBrav05">0</td>
+      <td id="orgBrav06">0</td>
+    </tr>
+    <tr>
+      <td>Wounds</td>
+      <td id="orgWoun01">0</td>
+      <td id="orgWoun02">0</td>
+      <td id="orgWoun03">0</td>
+      <td id="orgWoun04">0</td>
+      <td id="orgWoun05">0</td>
+      <td id="orgWoun06">0</td>
+    </tr>
+    <tr>
+      <td>keywords</td>
+      <td id="orgKeys01"></td>
+      <td id="orgKeys02"></td>
+      <td id="orgKeys03"></td>
+      <td id="orgKeys04"></td>
+      <td id="orgKeys05"></td>
+      <td id="orgKeys06"></td>
+    </tr>
+    <tr>
+      <td>actual points</td>
+      <td id="orgPts01">0</td>
+      <td id="orgPts02">0</td>
+      <td id="orgPts03">0</td>
+      <td id="orgPts04">0</td>
+      <td id="orgPts05">0</td>
+      <td id="orgPts06">0</td>
+    </tr>
+  </table>
+</div>
+
+<button onclick="resetWeaDisplay()">Reset WeaDisplayTable</button>
+<button onclick="showWeaDisplay()">Show WeaDisplayTable</button>
+
+<div id="orgWeaponTable">
+  <div id="missileTable" style="display: none">
+    <table id="missileWeaTable" style="width: 700px; font-size: 10px; border: 1px solid black;">
+      <tr>
+        <th width=40%>MISSILE WEAPONS</th>
+        <th width=10%>Rng</th>
+        <th width=10%>Att</th>
+        <th width=10%>Hit</th>
+        <th width=10%>Wnd</th>
+        <th width=10%>Rnd</th>
+        <th width=10%>Dmg</th>
+      </tr>
+    </table>
+  </div>
+  <div id="meleeTable" style="display: none">
+    <table id="meleeWeaTable" style="width: 700px; font-size: 10px; border: 1px solid black;">
+      <tr>
+        <th width=40%>MELEE WEAPONS</th>
+        <th width=10%>Rng</th>
+        <th width=10%>Att</th>
+        <th width=10%>Hit</th>
+        <th width=10%>Wnd</th>
+        <th width=10%>Rnd</th>
+        <th width=10%>Dmg</th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<button onclick="resetBeaDisplay()">Reset BeaDisplayTable</button>
+<button onclick="showBeaDisplay()">Show BeaDisplayTable</button>
+
+<div id="orgBeastTable">
+  <div id="meleeBeastTable" style="display: none;">
+    <table id="meleeWeaBeastTable" style="width: 700px; font-size: 10px; border: 1px solid black;">
+      <tr>
+        <th width=40%>MELEE WEAPONS</th>
+        <th width=10%>Rng</th>
+        <th width=10%>Att</th>
+        <th width=10%>Hit</th>
+        <th width=10%>Wnd</th>
+        <th width=10%>Rnd</th>
+        <th width=10%>Dmg</th>
+      </tr>
+    </table>
+  </div>
+</div>
+<br>
+
+<p>DmgTable: <span id="dmgTable99check">false</span></p>
+<div id="dmgTable99" class="dmgTable99">
+</div>
+
+<p id="triggeredBy">triggered by: ...</p>
+<p id="demo1">1)</p>
+</div>  <!-- end of originalStatsDatas -->
+<br>
+
+<div class="footer">
+  <p>Disclaimer: This web application is in no way endorsed or sanctioned by Games Workshop – it is entirely unofficial in every sense. Images, logos, colour schemes etc have been sourced from a variety of locations and I take absolutely no credit for their creation. Should the owner wish to authorise or cease useage then please contact me.</p>
+
+  <p>The Anvil of Apotheosis web application is my own work in mostly every part, supported by things and stuff which can be found and were freely accessable in the world wide web, and as such I claim and retain copyright on code and concept.</p>
+
+  <p>This application was build under Modzilla Firefox and works there appropriately. If using another Browser, there might be issues on display, style and/or function. So using Modzilla Firefox is highly recommended.</p>
+  
+  <p>GW, Games Workshop, Warhammer, Warhammer Age of Sigmar, and all associated logos, illustrations, images, names, creatures, races, locations and the distinctive likenesses thereof are either ® or TM, and/or © Games Workshop Limited, variably registered around the world.</p>
+</div><!-- end of class "footer" -->
+
+
+<!-- ------- SCRIPT area ------- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="Anvil of Ghur - Script.js"></script>
+
+</body>
+</html>
