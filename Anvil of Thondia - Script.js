@@ -1570,7 +1570,7 @@ $(document).ready(function () {
 
 function downloadWS() {
   var container = document.getElementById("warscrollcard");
-  html2canvas(container, { allowTaint: true }).then(function (canvas) {
+  html2canvas(container).then(function (canvas) {
 
     var link = document.createElement("a");
     document.body.appendChild(link);
